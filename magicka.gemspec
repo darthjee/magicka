@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.authors               = ['DarthJee']
   gem.email                 = ['darthjee@gmail.com']
   gem.homepage              = 'https://github.com/darthjee/magicka'
-  gem.description           = ''
+  gem.description           = 'Gem for easy form templating'
   gem.summary               = gem.description
   gem.required_ruby_version = '>= 2.5.0'
 
