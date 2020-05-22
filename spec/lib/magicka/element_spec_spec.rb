@@ -29,6 +29,30 @@ describe Magicka::Element do
     end
   end
 
+  describe '.render' do
+    before do
+      klass.send(:template, template)
+
+      allow(renderer)
+        .to receive(:render)
+        .with(partial: template, locals: locals)
+    end
+
+    it do
+      klass.render(renderer: renderer)
+
+      expect(renderer).to have_received(:render)
+    end
+
+    context 'when called with extra params' do
+      it do
+        klass.render(renderer: renderer, name: 'Name')
+
+        expect(renderer).to have_received(:render)
+      end
+    end
+  end
+
   describe '#render' do
     before do
       klass.send(:template, template)
