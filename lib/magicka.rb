@@ -2,6 +2,15 @@
 
 # @api public
 # @author darthjee
-class Magicka
-  autoload :VERSION, 'magicka/version'
+
+require 'sinclair'
+
+# @api public
+# @author Darthjee
+#
+# module holding herlper to render inputs
+module Magicka
+  autoload :VERSION,       'magicka/version'
+  autoload :Element,       'magicka/element'
+  autoload :MethodBuilder, 'magicka/method_builder'
 end
