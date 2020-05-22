@@ -10,7 +10,8 @@ module Magicka
       private
 
       def template(template)
-        MethodBuilder.new(self)
+        MethodBuilder
+          .new(self)
           .add_template(template)
       end
     end
