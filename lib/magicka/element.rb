@@ -10,11 +10,8 @@ module Magicka
       private
 
       def template(template)
-        Sinclair.new(self).tap do |builder|
-          builder.add_method(:template) do
-            template
-          end
-        end.build
+        MethodBuilder.new(self)
+          .add_template(template)
       end
     end
 
