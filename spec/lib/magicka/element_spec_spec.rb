@@ -13,15 +13,31 @@ describe Magicka::Element do
   let(:template) { 'templates/forms/element' }
   let(:locals)   { {} }
 
-  before do
-    klass.send(:template, template)
+  describe '.template' do
+    it do
+      expect { klass.send(:template, template) }
+        .to add_method(:template)
+        .to(klass)
+    end
 
-    allow(renderer)
-      .to receive(:render)
-      .with(partial: template, locals: locals)
+    context 'when method is build as requested' do
+      before { klass.send(:template, template) }
+
+      it 'returns the defined template when method is called' do
+        expect(element.template).to eq(template)
+      end
+    end
   end
 
   describe '#render' do
+    before do
+      klass.send(:template, template)
+
+      allow(renderer)
+        .to receive(:render)
+        .with(partial: template, locals: locals)
+    end
+
     it do
       element.render
 

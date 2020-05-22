@@ -6,6 +6,7 @@ module Magicka
       add_method(:template) do
         template
       end
+
       build
     end
   end
