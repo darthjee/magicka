@@ -4,7 +4,9 @@ module Magicka
   # @api public
   #
   # Base class for element rendering
-  class Element
+  class Element < Sinclair::Options
+    skip_validation
+
     class << self
       # render template using the given prameters
       #
@@ -45,8 +47,9 @@ module Magicka
     # Object responsible for rendering the HTML
 
     # @param (see .render)
-    def initialize(renderer:, **_args)
+    def initialize(renderer:, **args)
       @renderer = renderer
+      super(**args)
     end
 
     # @api private
