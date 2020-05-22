@@ -18,6 +18,7 @@ require File.expand_path('spec/dummy/config/environment')
 require File.expand_path('spec/dummy/db/schema.rb')
 require 'rspec/rails'
 require 'active_support/railtie'
+require 'sinclair/matchers'
 
 support_files = File.expand_path('spec/support/**/*.rb')
 Dir[support_files].sort.each { |file| require file }
@@ -32,4 +33,5 @@ RSpec.configure do |config|
   config.filter_run_excluding :integration unless ENV['ALL']
 
   config.order = 'random'
+  config.include Sinclair::Matchers
 end
