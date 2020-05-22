@@ -5,6 +5,10 @@
 
 require 'sinclair'
 
+# @api public
+# @author Darthjee
+#
+# module holding herlper to render inputs
 module Magicka
   autoload :VERSION,       'magicka/version'
   autoload :Element,       'magicka/element'
