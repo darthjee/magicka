@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Magicka
+module Magicka
   VERSION = '0.0.1'
 end

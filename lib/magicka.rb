@@ -2,6 +2,10 @@
 
 # @api public
 # @author darthjee
-class Magicka
+
+require 'sinclair'
+
+module Magicka
   autoload :VERSION, 'magicka/version'
+  autoload :Element, 'magicka/element'
 end
