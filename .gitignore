@@ -1,0 +1,12 @@
+coverages
+pkg
+Gemfile.lock
+coverage
+doc
+.yardoc/
+measurement/
+**/*.swp
+rubycritic/
+spec/dummy/log/*
+spec/dummy/tmp/*
+spec/dummy/db/*.sqlite3
