@@ -2,7 +2,9 @@
 
 module Magicka
   class Input < Element
-    with_options :placeholder, :field, :label, :model
+    with_attribute_locals :field, :placeholder, :label
+    with_attributes :model
+    with_locals :ng_errors, :ng_model
 
     template 'templates/forms/input'
 
@@ -18,16 +20,6 @@ module Magicka
 
     def ng_errors
       [model, :errors, field].join('.')
-    end
-
-    def locals
-      {
-        label: label,
-        ng_errors: ng_errors,
-        ng_model: [model, field].join('.'),
-        field: field,
-        placeholder: placeholder
-      }
     end
   end
 end
