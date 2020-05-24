@@ -54,10 +54,10 @@ describe Magicka::Element do
   end
 
   describe '.locals' do
-    it { expect(described_class.locals).to eq([]) }
+    it { expect(described_class.locals).to eq(Set.new([])) }
 
     context 'when calling on a subclass' do
-      it { expect(klass.locals).to eq([]) }
+      it { expect(klass.locals).to eq(Set.new([])) }
     end
 
     context 'when called on subclass' do
@@ -65,7 +65,7 @@ describe Magicka::Element do
 
       before { klass.send(:with_locals, :field, :model) }
 
-      it { expect(subclass.locals).to eq(%i[field model]) }
+      it { expect(subclass.locals).to eq(Set.new(%i[field model])) }
     end
   end
 

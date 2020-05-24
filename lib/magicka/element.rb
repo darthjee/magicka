@@ -18,7 +18,7 @@ module Magicka
       end
 
       def locals
-        @local ||= superclass.try(:locals)&.dup || []
+        @local ||= superclass.try(:locals)&.dup || Set.new([])
       end
 
       private
@@ -36,7 +36,7 @@ module Magicka
       end
 
       def with_locals(*args)
-        locals.concat(args)
+        locals.merge(args)
       end
     end
 
