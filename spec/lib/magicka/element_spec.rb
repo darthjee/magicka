@@ -115,6 +115,44 @@ describe Magicka::Element do
     end
   end
 
+  describe 'with_attribute_locals' do
+    it do
+      expect { klass.send(:with_attribute_locals, :field, :model) }
+        .to change(klass, :locals)
+        .from([])
+        .to(%i[field model])
+    end
+
+    it do
+      expect { klass.send(:with_attribute_locals, :field, :model) }
+        .not_to change(described_class, :locals)
+    end
+
+    it do
+      expect { klass.send(:with_attribute_locals, :field) }
+        .to add_method(:field)
+        .to(klass)
+    end
+
+    context 'when called on subclass' do
+      let(:subclass) { Class.new(klass) }
+
+      before { klass.send(:with_attribute_locals, :field, :model) }
+
+      it do
+        expect { subclass.send(:with_attribute_locals, :error) }
+          .to change(subclass, :locals)
+          .from(%i[field model])
+          .to(%i[field model error])
+      end
+
+      it do
+        expect { subclass.send(:with_attribute_locals, :error) }
+          .not_to change(klass, :locals)
+      end
+    end
+  end
+
   describe '#render' do
     before do
       klass.send(:template, template)

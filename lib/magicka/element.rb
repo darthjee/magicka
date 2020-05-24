@@ -40,6 +40,11 @@ module Magicka
       def with_locals(*args)
         locals.merge(args)
       end
+
+      def with_attribute_locals(*args)
+        with_locals(*args)
+        with_attributes(*args)
+      end
     end
 
     # Render element HTML
