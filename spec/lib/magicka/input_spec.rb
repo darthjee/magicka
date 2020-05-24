@@ -15,20 +15,20 @@ describe Magicka::Input do
     {
       field: field,
       label: label,
-      ng_errors: "my_model.errors.field",
-      ng_model: "my_model.field",
-      placeholder: placeholder,
+      ng_errors: 'my_model.errors.field',
+      ng_model: 'my_model.field',
+      placeholder: placeholder
     }
   end
 
   describe '.render' do
     let(:arguments) do
       {
-        renderer:    renderer,
-        field:       field,
-        label:       label,
+        renderer: renderer,
+        field: field,
+        label: label,
         placeholder: placeholder,
-        model:       model
+        model: model
       }
     end
 
@@ -37,7 +37,7 @@ describe Magicka::Input do
         .to receive(:render)
         .with(partial: template, locals: locals)
     end
-    
+
     it do
       described_class.render(arguments)
 

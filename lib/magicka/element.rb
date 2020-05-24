@@ -17,6 +17,10 @@ module Magicka
         new(renderer: renderer, **args).render
       end
 
+      def locals
+        @local ||= superclass.try(:locals)&.dup || []
+      end
+
       private
 
       # @api public
@@ -29,6 +33,10 @@ module Magicka
         MethodBuilder
           .new(self)
           .add_template(template)
+      end
+
+      def with_locals(*args)
+        locals.concat(args)
       end
     end
 
