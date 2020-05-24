@@ -12,5 +12,6 @@ require 'sinclair'
 module Magicka
   autoload :VERSION,       'magicka/version'
   autoload :Element,       'magicka/element'
+  autoload :Input,         'magicka/input'
   autoload :MethodBuilder, 'magicka/method_builder'
 end

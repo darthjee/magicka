@@ -4,31 +4,26 @@ module Magicka
   # @api public
   #
   # Base class for element rendering
-  class Element
+  class Element < Sinclair::Options
+    autoload :ClassMethods, 'magicka/element/class_methods'
+
+    skip_validation
+
     class << self
-      # render template using the given prameters
-      #
-      # @param renderer [Object] object responsible for rendering
-      #   the HTML
-      # @param args [Hash] Extra options
-      def render(renderer:, **args)
-        new(renderer: renderer, **args).render
-      end
+      alias with_attributes with_options
 
-      private
-
-      # @api public
-      # @!visibility public
-      #
-      # Sets template for element type
-      #
-      # @return [Array<Sinclair::MethodDefinition>]
-      def template(template)
-        MethodBuilder
-          .new(self)
-          .add_template(template)
-      end
+      include ClassMethods
     end
+
+    # @method with_attributes
+    # @api public
+    # @!visibility public
+    #
+    # Adds attribute
+    #
+    # This will affect initialization and add readers
+    #
+    # @return [Array]
 
     # Render element HTML
     def render
@@ -44,9 +39,13 @@ module Magicka
     #
     # Object responsible for rendering the HTML
 
+    # @api private
+    # @private
+    #
     # @param (see .render)
-    def initialize(renderer:, **_args)
+    def initialize(renderer:, **args)
       @renderer = renderer
+      super(**args)
     end
 
     # @api private
@@ -59,7 +58,9 @@ module Magicka
     #
     # @return [Hash]
     def locals
-      {}
+      self.class.locals.inject({}) do |hash, attribute|
+        hash.merge!(attribute => send(attribute))
+      end
     end
   end
 end
