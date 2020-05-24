@@ -11,8 +11,19 @@ module Magicka
 
     class << self
       alias with_attributes with_options
+
       include ClassMethods
     end
+
+    # @method with_attributes
+    # @api public
+    # @!visibility public
+    #
+    # Adds attribute
+    #
+    # This will affect initialization and add readers
+    #
+    # @return [Array]
 
     # Render element HTML
     def render
@@ -28,6 +39,9 @@ module Magicka
     #
     # Object responsible for rendering the HTML
 
+    # @api private
+    # @private
+    #
     # @param (see .render)
     def initialize(renderer:, **args)
       @renderer = renderer
