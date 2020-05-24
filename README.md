@@ -1,4 +1,4 @@
-Jace
+Magicka
 ====
 [![Code Climate](https://codeclimate.com/github/darthjee/magicka/badges/gpa.svg)](https://codeclimate.com/github/darthjee/magicka)
 [![Test Coverage](https://codeclimate.com/github/darthjee/magicka/badges/coverage.svg)](https://codeclimate.com/github/darthjee/magicka/coverage)
