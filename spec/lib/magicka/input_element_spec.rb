@@ -20,7 +20,7 @@ describe Magicka::InputElement do
   end
 
   before do
-    described_class.send(:template, template)
+    described_class.template(template)
   end
 
   describe '.render' do

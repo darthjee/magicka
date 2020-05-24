@@ -15,7 +15,7 @@ describe Magicka::Element do
 
   describe '#render' do
     before do
-      klass.send(:template, template)
+      klass.template(template)
 
       allow(renderer)
         .to receive(:render)

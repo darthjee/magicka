@@ -2,6 +2,8 @@
 
 module Magicka
   class Element < Sinclair::Options
+    # @api public
+    #
     # Class methods used for metaprograming of elements
     module ClassMethods
       # render template using the given prameters
@@ -20,11 +22,6 @@ module Magicka
         @locals ||= superclass.try(:locals)&.dup || Set.new([])
       end
 
-      private
-
-      # @api public
-      # @!visibility public
-      #
       # Sets template for element type
       #
       # @return [Array<Sinclair::MethodDefinition>]
@@ -33,6 +30,8 @@ module Magicka
           .new(self)
           .add_template(template)
       end
+
+      private
 
       # @api public
       # @!visibility public
