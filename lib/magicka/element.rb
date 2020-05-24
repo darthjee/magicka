@@ -20,7 +20,7 @@ module Magicka
       end
 
       def locals
-        @local ||= superclass.try(:locals)&.dup || Set.new([])
+        @locals ||= superclass.try(:locals)&.dup || Set.new([])
       end
 
       private
