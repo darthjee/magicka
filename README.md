@@ -11,7 +11,7 @@ Jace
 
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/magicka/0.0.1](https://www.rubydoc.info/gems/magicka/0.0.1)
+[https://www.rubydoc.info/gems/magicka/0.1,0](https://www.rubydoc.info/gems/magicka/0.1.0)
 
 Installation
 ---------------
