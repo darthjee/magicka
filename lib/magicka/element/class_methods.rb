@@ -31,6 +31,12 @@ module Magicka
           .add_template(template)
       end
 
+      def template_folder(folder)
+        MethodBuilder
+          .new(self)
+          .add_template_folder(folder)
+      end
+
       private
 
       # @api public

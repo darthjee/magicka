@@ -19,5 +19,13 @@ module Magicka
 
       build
     end
+
+    def add_template_folder(folder)
+      add_method(:template_folder) do
+        folder
+      end
+
+      build
+    end
   end
 end
