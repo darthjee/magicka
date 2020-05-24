@@ -179,5 +179,23 @@ describe Magicka::Element do
         expect(renderer).to have_received(:render)
       end
     end
+
+    context 'when class have locals defined' do
+      subject(:element) do
+        klass.new(renderer: renderer, name: 'Name')
+      end
+
+      let(:locals) { { name: 'Name' } }
+
+      before do
+        klass.send(:with_attribute_locals, :name)
+      end
+
+      it do
+        element.render
+
+        expect(renderer).to have_received(:render)
+      end
+    end
   end
 end

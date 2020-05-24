@@ -77,7 +77,9 @@ module Magicka
     #
     # @return [Hash]
     def locals
-      {}
+      self.class.locals.inject({}) do |hash, attribute|
+        hash.merge!(attribute => send(attribute))
+      end
     end
   end
 end
