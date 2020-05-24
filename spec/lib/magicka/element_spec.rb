@@ -13,6 +13,14 @@ describe Magicka::Element do
   let(:template) { 'templates/forms/element' }
   let(:locals)   { {} }
 
+  describe '.with_attributes' do
+    it do
+      expect { klass.send(:with_attributes, :field) }
+        .to add_method(:field)
+        .to(klass)
+    end
+  end
+
   describe '.template' do
     it do
       expect { klass.send(:template, template) }
@@ -80,6 +88,12 @@ describe Magicka::Element do
     it do
       expect { klass.send(:with_locals, :field, :model) }
         .not_to change(described_class, :locals)
+    end
+
+    it do
+      expect { klass.send(:with_locals, :field) }
+        .not_to add_method(:field)
+        .to(klass)
     end
 
     context 'when called on subclass' do

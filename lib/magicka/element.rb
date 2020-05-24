@@ -8,6 +8,8 @@ module Magicka
     skip_validation
 
     class << self
+      alias with_attributes with_options
+
       # render template using the given prameters
       #
       # @param renderer [Object] object responsible for rendering
