@@ -2,6 +2,7 @@
 
 module Magicka
   class Element < Sinclair::Options
+    # Class methods used for metaprograming of elements
     module ClassMethods
       # render template using the given prameters
       #
@@ -12,6 +13,9 @@ module Magicka
         new(renderer: renderer, **args).render
       end
 
+      # list of attributes to be used when rendering
+      #
+      # @return [Set<Symbol>]
       def locals
         @locals ||= superclass.try(:locals)&.dup || Set.new([])
       end
@@ -30,10 +34,25 @@ module Magicka
           .add_template(template)
       end
 
+      # @api public
+      # @!visibility public
+      #
+      # Add an attribute to locals when rendereing
+      #
+      # the attribute will be a call to the a method
+      # with same name
+      #
+      # @return [Set<Symbol>]
       def with_locals(*args)
         locals.merge(args)
       end
 
+      # @api public
+      # @!visibility public
+      #
+      # Adds attribute and locals
+      #
+      # @return [Array]
       def with_attribute_locals(*args)
         with_locals(*args)
         with_attributes(*args)
