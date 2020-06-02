@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Magicka
+  # @api public
+  #
+  # Basic class for elements for forms
   class InputElement < Element
     with_attribute_locals :field, :label
     with_attributes :model
