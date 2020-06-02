@@ -9,6 +9,8 @@ module Magicka
     with_attributes :model
     with_locals :ng_errors, :ng_model
 
+    template_folder 'templates/forms'
+
     private
 
     # @api private

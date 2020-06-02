@@ -72,7 +72,7 @@ describe Magicka::Element do
       before do
         klass.template_folder(folder)
 
-        method_builder.add_method(:name) { 'Magicka::Input' }
+        method_builder.add_class_method(:name) { 'Magicka::Input' }
         method_builder.build
       end
 
