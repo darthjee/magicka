@@ -20,6 +20,13 @@ module Magicka
       build
     end
 
+    # adds a mehtod +#template_folder+
+    #
+    # The method will always return the template folder given in the params
+    #
+    # @param template_folder [String] path to template folder
+    #
+    # @return [Array<Sinclair::MethodDefinition>]
     def add_template_folder(folder)
       add_method(:template_folder) do
         folder

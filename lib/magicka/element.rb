@@ -10,6 +10,12 @@ module Magicka
     skip_validation
 
     class << self
+      # @api public
+      # @!visibility public
+      #
+      # Add available options
+      #
+      # @return [Array<Sinclair::MethodDefinition>]
       alias with_attributes with_options
 
       include ClassMethods

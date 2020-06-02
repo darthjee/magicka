@@ -31,6 +31,9 @@ module Magicka
           .add_template(template)
       end
 
+      # Sets template folder for element type
+      #
+      # @return [Array<Sinclair::MethodDefinition>]
       def template_folder(folder)
         MethodBuilder
           .new(self)
