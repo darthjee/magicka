@@ -1,4 +1,4 @@
-threshold: 90.6
+threshold: 92.2
 require_exact_threshold: false
 rules:
   ApiTag::Presence:
@@ -21,7 +21,8 @@ rules:
     exclude: []
   Summary::Presence:
     enabled: true
-    exclude: []
+    exclude:
+      - Magicka::Element#initialize
   Summary::Length:
     enabled: true
     exclude: []

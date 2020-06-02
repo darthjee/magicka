@@ -23,13 +23,13 @@ describe Magicka::Element::ClassMethods do
 
   describe '.template' do
     it do
-      expect { klass.send(:template, template) }
+      expect { klass.template(template) }
         .to add_method(:template)
         .to(klass)
     end
 
     context 'when method is build as requested' do
-      before { klass.send(:template, template) }
+      before { klass.template(template) }
 
       it 'returns the defined template when method is called' do
         expect(element.template).to eq(template)
@@ -37,9 +37,27 @@ describe Magicka::Element::ClassMethods do
     end
   end
 
+  describe '.template_folder' do
+    let(:folder) { 'templates/forms' }
+
+    it do
+      expect { klass.template_folder(folder) }
+        .to add_method(:template_folder)
+        .to(klass)
+    end
+
+    context 'when method is build as requested' do
+      before { klass.template_folder(folder) }
+
+      it 'returns the defined template when method is called' do
+        expect(element.template_folder).to eq(folder)
+      end
+    end
+  end
+
   describe '.render' do
     before do
-      klass.send(:template, template)
+      klass.template(template)
 
       allow(renderer)
         .to receive(:render)

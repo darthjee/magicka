@@ -10,6 +10,12 @@ module Magicka
     skip_validation
 
     class << self
+      # @api public
+      # @!visibility public
+      #
+      # Add available options
+      #
+      # @return [Array<Sinclair::MethodDefinition>]
       alias with_attributes with_options
 
       include ClassMethods
@@ -61,6 +67,17 @@ module Magicka
       self.class.locals.inject({}) do |hash, attribute|
         hash.merge!(attribute => send(attribute))
       end
+    end
+
+    # @api public
+    # @private
+    #
+    # Returns template file location
+    #
+    # @return [String]
+    def template
+      name.underscore
+          .gsub(%r{^.*/}, "#{template_folder}/")
     end
   end
 end
