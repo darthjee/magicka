@@ -62,5 +62,16 @@ module Magicka
         hash.merge!(attribute => send(attribute))
       end
     end
+
+    # @api public
+    # @private
+    #
+    # Returns template file location
+    #
+    # @return [String]
+    def template
+      name.underscore
+          .gsub(%r{^.*/}, "#{template_folder}/")
+    end
   end
 end

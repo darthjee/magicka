@@ -11,26 +11,22 @@ describe Magicka::Element do
 
   let(:renderer) { instance_double('renderer') }
   let(:template) { 'templates/forms/element' }
+  let(:folder)   { 'templates/forms' }
   let(:locals)   { {} }
+
+  let(:method_builder)    { Sinclair.new(klass) }
+  let(:expected_template) { template }
 
   describe '#render' do
     before do
-      klass.template(template)
-
       allow(renderer)
         .to receive(:render)
-        .with(partial: template, locals: locals)
+        .with(partial: expected_template, locals: locals)
     end
 
-    it do
-      element.render
-
-      expect(renderer).to have_received(:render)
-    end
-
-    context 'when initialized with extra params' do
-      subject(:element) do
-        klass.new(renderer: renderer, name: 'Name')
+    context 'when class has a defined template' do
+      before do
+        klass.template(template)
       end
 
       it do
@@ -38,17 +34,46 @@ describe Magicka::Element do
 
         expect(renderer).to have_received(:render)
       end
-    end
 
-    context 'when class have locals defined' do
-      subject(:element) do
-        klass.new(renderer: renderer, name: 'Name')
+      context 'when initialized with extra params' do
+        subject(:element) do
+          klass.new(renderer: renderer, name: 'Name')
+        end
+
+        it do
+          element.render
+
+          expect(renderer).to have_received(:render)
+        end
       end
 
-      let(:locals) { { name: 'Name' } }
+      context 'when class have locals defined' do
+        subject(:element) do
+          klass.new(renderer: renderer, name: 'Name')
+        end
+
+        let(:locals) { { name: 'Name' } }
+
+        before do
+          klass.send(:with_attribute_locals, :name)
+        end
+
+        it do
+          element.render
+
+          expect(renderer).to have_received(:render)
+        end
+      end
+    end
+
+    context 'when class has only folder defined' do
+      let(:expected_template) { 'templates/forms/input' }
 
       before do
-        klass.send(:with_attribute_locals, :name)
+        klass.template_folder(folder)
+
+        method_builder.add_method(:name) { 'Magicka::Input' }
+        method_builder.build
       end
 
       it do

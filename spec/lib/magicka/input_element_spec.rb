@@ -54,4 +54,3 @@ describe Magicka::InputElement do
     end
   end
 end
-
