@@ -9,13 +9,15 @@ describe Magicka::Select do
   let(:model)       { :my_model }
   let(:field)       { :field }
   let(:label)       { 'Label' }
+  let(:options)     { %i[option_a option_b] }
 
   let(:locals) do
     {
       field: field,
       label: label,
       ng_errors: 'my_model.errors.field',
-      ng_model: 'my_model.field'
+      ng_model: 'my_model.field',
+      options: options,
     }
   end
 
@@ -25,7 +27,8 @@ describe Magicka::Select do
         renderer: renderer,
         field: field,
         label: label,
-        model: model
+        model: model,
+        options: options
       }
     end
 
