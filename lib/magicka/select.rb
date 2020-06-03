@@ -4,4 +4,3 @@ module Magicka
   class Select < FormElement
   end
 end
-
