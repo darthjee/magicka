@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Magicka::InputElement do
+describe Magicka::FormElement do
   let(:renderer) { instance_double('renderer') }
   let(:template) { 'templates/forms/input' }
 

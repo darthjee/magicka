@@ -4,7 +4,7 @@ module Magicka
   # @api public
   #
   # Basic class for elements for forms
-  class InputElement < Element
+  class FormElement < Element
     with_attribute_locals :field, :label
     with_attributes :model
     with_locals :ng_errors, :ng_model

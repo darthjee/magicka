@@ -13,6 +13,6 @@ module Magicka
   autoload :VERSION,       'magicka/version'
   autoload :Element,       'magicka/element'
   autoload :Input,         'magicka/input'
-  autoload :InputElement,  'magicka/input_element'
+  autoload :FormElement,   'magicka/form_element'
   autoload :MethodBuilder, 'magicka/method_builder'
 end
