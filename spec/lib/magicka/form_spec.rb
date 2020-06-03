@@ -44,4 +44,35 @@ describe Magicka::Form do
       expect(renderer).to have_received(:render)
     end
   end
+
+  describe '#select' do
+    let(:template)    { 'templates/forms/select' }
+    let(:field)       { :field }
+    let(:label)       { 'Label' }
+    let(:options)     { %i[option_a option_b] }
+
+    let(:locals) do
+      {
+        field: field,
+        label: label,
+        ng_errors: 'my_model.errors.field',
+        ng_model: 'my_model.field',
+        options: options
+      }
+    end
+
+    let(:arguments) do
+      {
+        label: label,
+        model: model,
+        options: options
+      }
+    end
+
+    it 'renders an input' do
+      form.select(field, arguments)
+
+      expect(renderer).to have_received(:render)
+    end
+  end
 end

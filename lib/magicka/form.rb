@@ -12,6 +12,10 @@ module Magicka
     def input(field, model: self.model, **args)
       Input.render(renderer: renderer, field: field, model: model, **args)
     end
+
+    def select(field, model: self.model, **args)
+      Select.render(renderer: renderer, field: field, model: model, **args)
+    end
     private
 
     attr_reader :renderer
