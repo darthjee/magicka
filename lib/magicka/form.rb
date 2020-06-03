@@ -21,9 +21,25 @@ module Magicka
       Button.render(renderer: renderer, **args)
     end
 
-    private
+    def with_model(model)
+      new_model = [self.model, model].join('.')
+
+      yield Form.new(renderer, new_model)
+    end
+
+    def equal?(other)
+      return unless other.class == self.class
+      other.renderer == renderer &&
+        other.model == model
+    end
+
+    alias == equal?
+
+    protected
 
     attr_reader :renderer
+
+    private
 
     delegate :render, to: :renderer
   end

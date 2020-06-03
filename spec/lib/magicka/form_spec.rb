@@ -7,6 +7,8 @@ describe Magicka::Form do
 
   let(:model)    { :my_model }
   let(:renderer) { instance_double('renderer') }
+  let(:template) { 'templates/forms/input' }
+  let(:locals)   { {} }
 
   before do
     allow(renderer)
@@ -105,6 +107,16 @@ describe Magicka::Form do
       form.button(arguments)
 
       expect(renderer).to have_received(:render)
+    end
+  end
+
+  describe '#with_model' do
+    let(:expected_form) { described_class.new(renderer, 'my_model.inner') }
+
+    it do
+      form.with_model(:inner) do |new_form|
+        expect(new_form).to eq(expected_form)
+      end
     end
   end
 end
