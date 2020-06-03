@@ -11,6 +11,7 @@ require 'sinclair'
 # module holding herlper to render inputs
 module Magicka
   autoload :VERSION,       'magicka/version'
+  autoload :Button,        'magicka/button'
   autoload :Element,       'magicka/element'
   autoload :FormElement,   'magicka/form_element'
   autoload :Input,         'magicka/input'
