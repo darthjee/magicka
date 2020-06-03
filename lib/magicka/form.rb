@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Magicka
+  # Class responsible for controlling one object form
   class Form
     attr_reader :model
 
@@ -29,6 +30,7 @@ module Magicka
 
     def equal?(other)
       return unless other.class == self.class
+
       other.renderer == renderer &&
         other.model == model
     end
@@ -38,8 +40,6 @@ module Magicka
     protected
 
     attr_reader :renderer
-
-    private
 
     delegate :render, to: :renderer
   end
