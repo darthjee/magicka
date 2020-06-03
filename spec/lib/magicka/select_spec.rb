@@ -9,15 +9,13 @@ describe Magicka::Select do
   let(:model)       { :my_model }
   let(:field)       { :field }
   let(:label)       { 'Label' }
-  let(:placeholder) { 'Value' }
 
   let(:locals) do
     {
       field: field,
       label: label,
       ng_errors: 'my_model.errors.field',
-      ng_model: 'my_model.field',
-      placeholder: placeholder
+      ng_model: 'my_model.field'
     }
   end
 
@@ -27,7 +25,6 @@ describe Magicka::Select do
         renderer: renderer,
         field: field,
         label: label,
-        placeholder: placeholder,
         model: model
       }
     end
@@ -53,4 +50,3 @@ describe Magicka::Select do
     end
   end
 end
-
