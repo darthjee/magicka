@@ -2,25 +2,23 @@
 
 require 'spec_helper'
 
-describe Magicka::InputElement do
+describe Magicka::Select do
   let(:renderer) { instance_double('renderer') }
-  let(:template) { 'templates/forms/input' }
+  let(:template) { 'templates/forms/select' }
 
   let(:model)       { :my_model }
   let(:field)       { :field }
   let(:label)       { 'Label' }
+  let(:options)     { %i[option_a option_b] }
 
   let(:locals) do
     {
       field: field,
       label: label,
       ng_errors: 'my_model.errors.field',
-      ng_model: 'my_model.field'
+      ng_model: 'my_model.field',
+      options: options
     }
-  end
-
-  before do
-    described_class.template(template)
   end
 
   describe '.render' do
@@ -29,7 +27,8 @@ describe Magicka::InputElement do
         renderer: renderer,
         field: field,
         label: label,
-        model: model
+        model: model,
+        options: options
       }
     end
 

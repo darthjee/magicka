@@ -2,7 +2,7 @@
 
 module Magicka
   # Input element representing an HTML +<input/>+
-  class Input < InputElement
+  class Input < FormElement
     with_attribute_locals :placeholder
   end
 end

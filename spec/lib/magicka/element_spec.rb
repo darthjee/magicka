@@ -67,12 +67,12 @@ describe Magicka::Element do
     end
 
     context 'when class has only folder defined' do
-      let(:expected_template) { 'templates/forms/input' }
+      let(:expected_template) { 'templates/forms/my_element' }
 
       before do
         klass.template_folder(folder)
 
-        method_builder.add_class_method(:name) { 'Magicka::Input' }
+        method_builder.add_class_method(:name) { 'Magicka::MyElement' }
         method_builder.build
       end
 
