@@ -17,7 +17,7 @@ describe Magicka::Select do
       label: label,
       ng_errors: 'my_model.errors.field',
       ng_model: 'my_model.field',
-      options: options,
+      options: options
     }
   end
 
