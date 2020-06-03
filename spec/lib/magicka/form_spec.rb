@@ -75,4 +75,36 @@ describe Magicka::Form do
       expect(renderer).to have_received(:render)
     end
   end
+
+  describe '#button' do
+    let(:template)    { 'templates/forms/button' }
+    let(:ng_click)    { 'controler.click()' }
+    let(:ng_disabled) { 'false' }
+    let(:classes)     { 'custom class' }
+    let(:text)        { 'Click' }
+
+    let(:locals) do
+      {
+        ng_click: ng_click,
+        ng_disabled: ng_disabled,
+        classes: classes,
+        text: text
+      }
+    end
+
+    let(:arguments) do
+      {
+        ng_click: ng_click,
+        ng_disabled: ng_disabled,
+        classes: classes,
+        text: text
+      }
+    end
+
+    it 'renders an input' do
+      form.button(arguments)
+
+      expect(renderer).to have_received(:render)
+    end
+  end
 end

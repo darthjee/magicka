@@ -16,6 +16,11 @@ module Magicka
     def select(field, model: self.model, **args)
       Select.render(renderer: renderer, field: field, model: model, **args)
     end
+
+    def button(**args)
+      Button.render(renderer: renderer, **args)
+    end
+
     private
 
     attr_reader :renderer
