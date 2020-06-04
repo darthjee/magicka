@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Magicka
   # Helper module to be used on rails
   module Helper
