@@ -8,7 +8,6 @@ module Magicka
     autoload :ClassMethods,  'magicka/element/class_methods'
     autoload :MethodBuilder, 'magicka/element/method_builder'
 
-
     skip_validation
 
     class << self
