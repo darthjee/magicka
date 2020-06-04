@@ -2,7 +2,7 @@
 
 module Magicka
   # Class responsible for controlling one object form
-  class Form
+  class Form < Aggregator
     attr_reader :model
 
     def initialize(renderer, model)
@@ -10,13 +10,8 @@ module Magicka
       @model    = model
     end
 
-    def input(field, model: self.model, **args)
-      Input.render(renderer: renderer, field: field, model: model, **args)
-    end
-
-    def select(field, model: self.model, **args)
-      Select.render(renderer: renderer, field: field, model: model, **args)
-    end
+    with_element(Input, :input)
+    with_element(Select, :select)
 
     def button(**args)
       Button.render(renderer: renderer, **args)
