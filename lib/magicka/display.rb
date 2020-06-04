@@ -6,6 +6,6 @@ module Magicka
     with_element(Text, :input)
     with_element(Text, :select)
 
-    def button(**args); end
+    def button(**_args); end
   end
 end

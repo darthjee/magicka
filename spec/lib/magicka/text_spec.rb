@@ -50,4 +50,3 @@ describe Magicka::Text do
     end
   end
 end
-

@@ -6,4 +6,3 @@ module Magicka
     template_folder 'templates/display'
   end
 end
-
