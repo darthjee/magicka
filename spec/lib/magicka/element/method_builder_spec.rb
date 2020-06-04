@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Magicka::MethodBuilder do
+describe Magicka::Element::MethodBuilder do
   subject(:builder) { described_class.new(klass) }
 
   let(:klass)    { Class.new }

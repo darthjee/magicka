@@ -5,7 +5,8 @@ module Magicka
   #
   # Base class for element rendering
   class Element < Sinclair::Options
-    autoload :ClassMethods, 'magicka/element/class_methods'
+    autoload :ClassMethods,  'magicka/element/class_methods'
+    autoload :MethodBuilder, 'magicka/element/method_builder'
 
     skip_validation
 

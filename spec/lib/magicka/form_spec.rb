@@ -35,8 +35,7 @@ describe Magicka::Form do
     let(:arguments) do
       {
         label: label,
-        placeholder: placeholder,
-        model: model
+        placeholder: placeholder
       }
     end
 
@@ -44,6 +43,24 @@ describe Magicka::Form do
       form.input(field, arguments)
 
       expect(renderer).to have_received(:render)
+    end
+
+    context 'when passing a custom model' do
+      let(:locals) do
+        {
+          field: field,
+          label: label,
+          ng_errors: 'my_custom_model.errors.field',
+          ng_model: 'my_custom_model.field',
+          placeholder: placeholder
+        }
+      end
+
+      it 'renders an input' do
+        form.input(field, model: 'my_custom_model', **arguments)
+
+        expect(renderer).to have_received(:render)
+      end
     end
   end
 
@@ -66,15 +83,32 @@ describe Magicka::Form do
     let(:arguments) do
       {
         label: label,
-        model: model,
         options: options
       }
     end
 
-    it 'renders an input' do
+    it 'renders a select' do
       form.select(field, arguments)
 
       expect(renderer).to have_received(:render)
+    end
+
+    context 'when passing a custom model' do
+      let(:locals) do
+        {
+          field: field,
+          label: label,
+          ng_errors: 'my_custom_model.errors.field',
+          ng_model: 'my_custom_model.field',
+          options: options
+        }
+      end
+
+      it 'renders a select' do
+        form.select(field, model: 'my_custom_model', **arguments)
+
+        expect(renderer).to have_received(:render)
+      end
     end
   end
 
