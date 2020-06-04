@@ -17,6 +17,7 @@ module Magicka
   autoload :Element,     'magicka/element'
   autoload :FormElement, 'magicka/form_element'
   autoload :Form,        'magicka/form'
+  autoload :Helper,      'magicka/helper'
   autoload :Input,       'magicka/input'
   autoload :Select,      'magicka/select'
   autoload :Text,        'magicka/text'
