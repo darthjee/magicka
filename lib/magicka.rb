@@ -14,6 +14,7 @@ module Magicka
   autoload :Button,        'magicka/button'
   autoload :Element,       'magicka/element'
   autoload :FormElement,   'magicka/form_element'
+  autoload :Form,          'magicka/form'
   autoload :Input,         'magicka/input'
   autoload :MethodBuilder, 'magicka/method_builder'
   autoload :Select,        'magicka/select'
