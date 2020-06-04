@@ -2,6 +2,9 @@
 
 module Magicka
   class Aggregator
+    # @api private
+    #
+    # Class responsible for building an {Aggregator} method
     class MethodBuilder < Sinclair
       def initialize(klass, element_class, method_name = nil)
         super(klass)

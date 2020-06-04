@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Magicka
+  # @api public
+  #
+  # Class representing an element agregator, representing a model
   class Aggregator
     autoload :MethodBuilder, 'magicka/aggregator/method_builder'
 
