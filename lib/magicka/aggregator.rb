@@ -3,7 +3,7 @@
 module Magicka
   class Aggregator
     class << self
-      def with_element(element_klass, method_name)
+      def with_element(element_klass, method_name=element_klass.name.underscore.gsub(/.*\//, ''))
         Sinclair.new(self).tap do |builder|
           builder.add_method(method_name) do |field, model: self.model, **args|
             element_klass.render(

@@ -10,8 +10,8 @@ module Magicka
       @model    = model
     end
 
-    with_element(Input, :input)
-    with_element(Select, :select)
+    with_element(Input)
+    with_element(Select)
 
     def button(**args)
       Button.render(renderer: renderer, **args)
