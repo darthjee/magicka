@@ -3,7 +3,7 @@
 module Magicka
   class Aggregator
     class MethodBuilder < Sinclair
-      def initialize(klass, element_class, method_name=nil)
+      def initialize(klass, element_class, method_name = nil)
         super(klass)
 
         @element_class = element_class
@@ -28,9 +28,9 @@ module Magicka
 
       def method_name
         @method_name ||= element_class
-          .name
-          .underscore
-          .gsub(%r{.*/}, '')
+                         .name
+                         .underscore
+                         .gsub(%r{.*/}, '')
       end
     end
   end
