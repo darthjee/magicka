@@ -2,15 +2,13 @@
 
 module Magicka
   class Aggregator
+    autoload :MethodBuilder, 'magicka/aggregator/method_builder'
+
     class << self
-      def with_element(element_klass, method_name = element_klass.name.underscore.gsub(%r{.*/}, ''))
-        Sinclair.new(self).tap do |builder|
-          builder.add_method(method_name) do |field, model: self.model, **args|
-            element_klass.render(
-              renderer: renderer, field: field, model: model, **args
-            )
-          end
-        end.build
+      def with_element(element_class, method_name = nil)
+        MethodBuilder.new(self, element_class, method_name)
+          .prepare
+          .build
       end
     end
   end
