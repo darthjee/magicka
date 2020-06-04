@@ -18,4 +18,5 @@ module Magicka
   autoload :Form,        'magicka/form'
   autoload :Input,       'magicka/input'
   autoload :Select,      'magicka/select'
+  autoload :Text,        'magicka/text'
 end
