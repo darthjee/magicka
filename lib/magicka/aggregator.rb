@@ -15,5 +15,33 @@ module Magicka
           .build
       end
     end
+
+    attr_reader :model
+
+    def initialize(renderer, model)
+      @renderer = renderer
+      @model    = model
+    end
+
+    def with_model(model)
+      new_model = [self.model, model].join('.')
+
+      yield self.class.new(renderer, new_model)
+    end
+
+    def equal?(other)
+      return unless other.class == self.class
+
+      other.renderer == renderer &&
+        other.model == model
+    end
+
+    alias == equal?
+
+    protected
+
+    attr_reader :renderer
+
+    delegate :render, to: :renderer
   end
 end
