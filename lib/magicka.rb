@@ -13,6 +13,7 @@ module Magicka
   autoload :VERSION,     'magicka/version'
   autoload :Aggregator,  'magicka/aggregator'
   autoload :Button,      'magicka/button'
+  autoload :Display,     'magicka/display'
   autoload :Element,     'magicka/element'
   autoload :FormElement, 'magicka/form_element'
   autoload :Form,        'magicka/form'
