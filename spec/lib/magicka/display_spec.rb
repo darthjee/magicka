@@ -148,7 +148,7 @@ describe Magicka::Display do
       end
     end
 
-    context 'wwhen passing a new base' do
+    context 'when passing a new base' do
       it do
         form.with_model('sub', base: :other_model) do |new_form|
           expect(new_form)
@@ -157,7 +157,7 @@ describe Magicka::Display do
       end
     end
 
-    context 'wwhen passing an empty base' do
+    context 'when passing an empty base' do
       it do
         form.with_model('sub', base: nil) do |new_form|
           expect(new_form)
