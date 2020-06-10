@@ -23,8 +23,8 @@ module Magicka
       @model    = model
     end
 
-    def with_model(model)
-      new_model = [self.model, model].join('.')
+    def with_model(model, base: self.model)
+      new_model = [base, model].compact.join('.')
 
       yield self.class.new(renderer, new_model)
     end

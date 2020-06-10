@@ -11,7 +11,7 @@ Magicka
 
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/magicka/0.5.2](https://www.rubydoc.info/gems/magicka/0.5.2)
+[https://www.rubydoc.info/gems/magicka/0.5.3](https://www.rubydoc.info/gems/magicka/0.5.3)
 
 Installation
 ---------------
