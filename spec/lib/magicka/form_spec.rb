@@ -153,4 +153,31 @@ describe Magicka::Form do
       end
     end
   end
+
+  describe '#with_form' do
+    it do
+      form.with_model('sub') do |new_form|
+        expect(new_form)
+          .to eq(described_class.new(renderer, 'my_model.sub'))
+      end
+    end
+
+    context 'wwhen passing a new base' do
+      it do
+        form.with_model('sub', base: :other_model) do |new_form|
+          expect(new_form)
+            .to eq(described_class.new(renderer, 'other_model.sub'))
+        end
+      end
+    end
+
+    context 'wwhen passing an empty base' do
+      it do
+        form.with_model('sub', base: nil) do |new_form|
+          expect(new_form)
+            .to eq(described_class.new(renderer, 'sub'))
+        end
+      end
+    end
+  end
 end
