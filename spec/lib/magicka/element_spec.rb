@@ -83,8 +83,10 @@ describe Magicka::Element do
       end
     end
 
-    context 'when class has a template defined but instance is initialized with template' do
-      subject(:element) { klass.new(renderer: renderer, template: custom_template) }
+    context 'when class has a template but is initialized with template' do
+      subject(:element) do
+        klass.new(renderer: renderer, template: custom_template)
+      end
 
       let(:custom_template) { 'custom_folder/custom_template' }
       let(:expected_template) { custom_template }
@@ -100,8 +102,10 @@ describe Magicka::Element do
       end
     end
 
-    context 'when class has folder defined but instance is initialized with template' do
-      subject(:element) { klass.new(renderer: renderer, template: custom_template) }
+    context 'when class has folder but is initialized with template' do
+      subject(:element) do
+        klass.new(renderer: renderer, template: custom_template)
+      end
 
       let(:custom_template)   { 'custom_folder/custom_template' }
       let(:expected_template) { custom_template }

@@ -142,7 +142,9 @@ describe Magicka::Aggregator do
 
     context 'when seeting element class and template' do
       it do
-        expect { aggregator_class.with_element(Magicka::Input, template: template) }
+        expect do
+          aggregator_class.with_element(Magicka::Input, template: template)
+        end
           .to add_method(:input)
           .to(aggregator)
       end

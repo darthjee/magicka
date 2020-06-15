@@ -20,7 +20,9 @@ module Magicka
 
         add_method(method_name) do |field, model: self.model, **args|
           element_klass.render(
-            renderer: renderer, field: field, model: model, template: template_file, **args
+            renderer: renderer, field: field,
+            model: model, template: template_file,
+            **args
           )
         end
 
