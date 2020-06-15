@@ -8,9 +8,9 @@ module Magicka
     autoload :MethodBuilder, 'magicka/aggregator/method_builder'
 
     class << self
-      def with_element(element_class, method_name = nil)
+      def with_element(element_class, method_name = nil, template: nil)
         MethodBuilder
-          .new(self, element_class, method_name)
+          .new(self, element_class, method_name, template: template)
           .prepare
           .build
       end
