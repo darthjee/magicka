@@ -14,7 +14,7 @@ module Magicka
       #
       # @return [Array<Sinclair::MethodDefinition>]
       def add_template(template)
-        add_method(:template) do
+        add_method(:template, cached: true) do
           template
         end
 

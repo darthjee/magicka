@@ -77,7 +77,7 @@ module Magicka
     #
     # @return [String]
     def template
-      self.class.name.underscore
+      @template ||= self.class.name.underscore
           .gsub(%r{^.*/}, "#{template_folder}/")
     end
   end
