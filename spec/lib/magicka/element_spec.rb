@@ -82,5 +82,42 @@ describe Magicka::Element do
         expect(renderer).to have_received(:render)
       end
     end
+
+    context 'when class has a template defined but instance is initialized with template' do
+      subject(:element) { klass.new(renderer: renderer, template: custom_template) }
+
+      let(:custom_template) { 'custom_folder/custom_template' }
+      let(:expected_template) { custom_template }
+
+      before do
+        klass.template(template)
+      end
+
+      it do
+        element.render
+
+        expect(renderer).to have_received(:render)
+      end
+    end
+
+    context 'when class has folder defined but instance is initialized with template' do
+      subject(:element) { klass.new(renderer: renderer, template: custom_template) }
+
+      let(:custom_template)   { 'custom_folder/custom_template' }
+      let(:expected_template) { custom_template }
+
+      before do
+        klass.template_folder(folder)
+
+        method_builder.add_class_method(:name) { 'Magicka::MyElement' }
+        method_builder.build
+      end
+
+      it do
+        element.render
+
+        expect(renderer).to have_received(:render)
+      end
+    end
   end
 end
