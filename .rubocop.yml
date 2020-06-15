@@ -32,7 +32,7 @@ RSpec/MultipleExpectations:
     - 'spec/integration/readme/**/*_spec.rb'
 
 RSpec/NestedGroups:
-  Max: 4
+  Max: 5
   Exclude:
     - 'spec/integration/yard/**/*.rb'
 
