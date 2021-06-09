@@ -16,13 +16,13 @@ Yard Documentation
 Installation
 ---------------
 
--   Install it
+- Install it
 
 ```ruby
   gem install magicka
 ```
 
--   Or add Magicka to your `Gemfile` and `bundle install`:
+- Or add Magicka to your `Gemfile` and `bundle install`:
 
 ```ruby
   gem 'magicka'
@@ -30,4 +30,42 @@ Installation
 
 ```bash
   bundle install magicka
+```
+
+## Including custom elements
+
+Elements can be included by defining attributes that they can be initialized with
+and that can be passed to the template
+
+```ruby
+module Magicka
+  class NgSelect < Magicka::Select
+    with_attribute_locals :text_field, :reference_key
+  end
+end
+
+Magicka::Form.with_element(Magicka::NgSelect)
+```
+
+```html.erb
+<div class="form-group row">
+  <div class="col-5">
+    <label for="<%= field %>" class="control-label"><%= label %></label>
+  </div>
+  <div class="col-7">
+    <select
+       id="<%= field %>"
+       name="<%= field %>"
+       ng-model="<%= ng_model %>"
+       class="form-control"
+       ng-class="{'is-invalid': <%= ng_errors %>}">
+       <option value="">Select</option>
+       <option ng-repeat="option in <%= options %>" value="{{option.<%= reference_key %>}}">{{option.<%= text_field %>}}</option>
+    </select>
+
+    <div class="invalid-feedback" ng-repeat="error in <%= ng_errors %>">
+      {{error}}
+    </div>
+  </div>
+</div>
 ```
