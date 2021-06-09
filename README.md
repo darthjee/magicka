@@ -37,35 +37,21 @@ Installation
 Elements can be included by defining attributes that they can be initialized with
 and that can be passed to the template
 
+`config/initializers/magicka.rb`
 ```ruby
 module Magicka
-  class NgSelect < Magicka::Select
-    with_attribute_locals :text_field, :reference_key
+  class MyTextInput < Magicka::Element
+    with_attribute_locals :label, :field, :id
   end
 end
 
-Magicka::Form.with_element(Magicka::NgSelect)
+Magicka::Form.with_element(Magicka::MyTextInput)
 ```
 
+`templates/form/_my_text_input.html.erb`
 ```html.erb
-<div class="form-group row">
-  <div class="col-5">
-    <label for="<%= field %>" class="control-label"><%= label %></label>
-  </div>
-  <div class="col-7">
-    <select
-       id="<%= field %>"
-       name="<%= field %>"
-       ng-model="<%= ng_model %>"
-       class="form-control"
-       ng-class="{'is-invalid': <%= ng_errors %>}">
-       <option value="">Select</option>
-       <option ng-repeat="option in <%= options %>" value="{{option.<%= reference_key %>}}">{{option.<%= text_field %>}}</option>
-    </select>
-
-    <div class="invalid-feedback" ng-repeat="error in <%= ng_errors %>">
-      {{error}}
-    </div>
-  </div>
+<div>
+  <label for="<%= field %>"><%= label %></label>
+  <input type="text" id="<%= id %>" name="field" />
 </div>
 ```
