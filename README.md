@@ -19,13 +19,13 @@ Yard Documentation
 Installation
 ---------------
 
-  - Install it
+ - Install it
 
 ```ruby
   gem install magicka
 ```
 
-  - Or add Magicka to your `Gemfile` and `bundle install`:
+ - Or add Magicka to your `Gemfile` and `bundle install`:
 
 ```ruby
   gem 'magicka'
