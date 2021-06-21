@@ -9,6 +9,9 @@ Magicka
 
 ![magicka](https://raw.githubusercontent.com/darthjee/magicka/master/magicka.jpg)
 
+Magica helps creating html templates for forms and display data using js applications
+such as AngulaJS
+
 Yard Documentation
 -------------------
 [https://www.rubydoc.info/gems/magicka/0.5.5](https://www.rubydoc.info/gems/magicka/0.5.5)
@@ -32,7 +35,52 @@ Installation
   bundle install magicka
 ```
 
-## Including custom elements
+## Usage
+Magicka is used as a helper for erb coding so that each element is paired with an
+element class, a template and a method in an aggregator.
+
+Different aggregators have the same method so that they render the same `element` in
+different ways
+
+### example
+```html.erb
+<!-- new.html.erb -->
+
+<% magicka_form('controller.person') do |form| %>
+  <%= render partial: 'person_form', locals: { form: form } %>
+<% end %>
+```
+
+```html.erb
+<!-- show.html.erb -->
+
+<% magicka_display('controller.person') do |form| %>
+  <%= render partial: 'person_form', locals: { form: form } %>
+<% end %>
+```
+
+```html.erb
+<!-- _person_form.html.erb -->
+
+<%= form.input(:first_name) %>
+<%= form.input(:last_name) %>
+<%= form.input(:age) %>
+<%= form.select(:gender, options: %w[MALE FEMALE] %>
+<%= form.button(ng_click: 'controller.save', text: 'Save') %>
+```
+
+## Configuring
+In order to use magicka, the helper has to added to the controllers and any custom
+element needs to added
+
+`app/controllers/application_controller.rb`
+```ruby
+class ApplicationController < ActionController::Base
+  helper Magicka::Helper
+end
+```
+
+### Including custom elements
 
 Elements can be included by defining attributes that they can be initialized with
 and that can be passed to the template
