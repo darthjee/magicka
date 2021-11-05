@@ -13,7 +13,7 @@ module Magicka
     with Form
     with Display
 
-    # @method self.with
+    # @method self.with(aggregator_class, type = aggregator_class.type)
     #
     # Adds a helper method magicka_(type)
     #
@@ -24,9 +24,9 @@ module Magicka
     # @param type [String,Symbol] type of aggregator,
     #   this will define the method name
     #
-    # @return Array<NilClass>
+    # @return [Array<NilClass>]
 
-    # @method magicka_form
+    # @method magicka_form(model)
     #
     # Execute a block with an aggregator focused on a model
     #
@@ -40,7 +40,7 @@ module Magicka
     #
     # @return [String]
 
-    # @method magicka_display
+    # @method magicka_display(model)
     #
     # Execute a block with an aggregator focused on a model
     #
