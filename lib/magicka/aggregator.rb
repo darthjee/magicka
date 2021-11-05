@@ -61,6 +61,13 @@ module Magicka
     protected
 
     attr_reader :renderer
+    # @method renderer
+    # @private
+    # @api private
+    #
+    # Returns the element needed to render the view
+    #
+    # @return [ActionView::Base]
 
     delegate :render, to: :renderer
   end
