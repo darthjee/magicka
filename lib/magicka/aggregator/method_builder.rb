@@ -47,7 +47,7 @@ module Magicka
       # Class of the element to be rendered by the method
       #
       # @return [Class<Magicka::Element>]
-      
+
       # @method template
       #
       # template file

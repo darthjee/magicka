@@ -15,7 +15,7 @@ module Magicka
     attr_reader :model
     # @method model
     # @api public
-    # 
+    #
     # Model where the form elements will focus
     #
     # @return [String]
@@ -29,7 +29,7 @@ module Magicka
     # @param method_name [String,Symbol]
     #   Name of the method that will render the element
     # @param template [String] custom template file to be used
-    # 
+    #
     # @see Aggregator::ClassMethods#with_element
     # @see Aggregator::MethodBuilder
     #
