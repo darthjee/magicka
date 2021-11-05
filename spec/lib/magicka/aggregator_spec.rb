@@ -21,9 +21,17 @@ describe Magicka::Aggregator do
     end
 
     context 'when type has not been set' do
+      let(:aggregator_class) do
+        Class.new(described_class) do
+          def self.name
+            "Magicka::MyClass"
+          end
+        end
+      end
+
       it 'Uses class name as type' do
-        expect(Magicka::Form.type)
-          .to eq(:form)
+        expect(aggregator_class.type)
+          .to eq(:my_class)
       end
     end
   end
