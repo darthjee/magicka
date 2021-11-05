@@ -3,12 +3,17 @@
 module Magicka
   # Helper module to be used on rails
   module Helper
-    def magicka_form(model)
-      yield Form.new(self, model)
+    class << self
+      def with(aggregator_class, type = aggregator_class.type)
+        Sinclair.new(self).tap do |builder|
+          builder.add_method("magicka_#{type}") do |model, &block|
+            block.call(aggregator_class.new(self, model))
+          end
+        end.build
+      end
     end
 
-    def magicka_display(model)
-      yield Display.new(self, model)
-    end
+    with Form
+    with Display
   end
 end
