@@ -6,6 +6,13 @@ module Magicka
     #
     # Class responsible for building an {Aggregator} method
     class MethodBuilder < Sinclair
+      # @param klass [Class.new<Aggregator>]
+      #   Aggragator class to receive the method
+      # @param element_class [Class<Magicka::ELement>]
+      #   Class of the element to be rendered
+      # @param method_name [String,Symbol]
+      #   Name of the method that will render the element
+      # @param template [String] custom template file to be used
       def initialize(klass, element_class, method_name = nil, template: nil)
         super(klass)
 
@@ -14,6 +21,9 @@ module Magicka
         @template = template
       end
 
+      # Prepare methods to be built
+      #
+      # @return [Aggregator::MethodBuilder] return self
       def prepare
         element_klass = element_class
         template_file = template
@@ -32,7 +42,28 @@ module Magicka
       private
 
       attr_reader :element_class, :template
+      # @method element_class
+      # @api private
+      # @private
+      #
+      # Class of the element to be rendered by the method
+      #
+      # @return [Class<Magicka::Element>]
 
+      # @method template
+      # @api private
+      # @private
+      #
+      # template file
+      #
+      # @return [String]
+
+      # name of the method to be generated
+      #
+      # When the method name was not supplied in the constructor,
+      # it is infered from {#element_class}
+      #
+      # @return [String,Symbol]
       def method_name
         @method_name ||= element_class
                          .name
