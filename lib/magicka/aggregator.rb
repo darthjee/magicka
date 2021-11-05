@@ -8,11 +8,19 @@ module Magicka
     autoload :MethodBuilder, 'magicka/aggregator/method_builder'
 
     class << self
+      attr_reader :type
+
       def with_element(element_class, method_name = nil, template: nil)
         MethodBuilder
           .new(self, element_class, method_name, template: template)
           .prepare
           .build
+      end
+
+      private
+
+      def for(type)
+        @type = type.to_sym
       end
     end
 

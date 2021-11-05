@@ -11,6 +11,16 @@ describe Magicka::Aggregator do
   let(:template)         { 'templates/forms/input' }
   let(:locals)           { {} }
 
+  describe '.for' do
+    let(:type) { %w[form display other].sample }
+
+    it 'sets aggregator type' do
+      expect { aggregator_class.send(:for, type) }
+        .to change { aggregator_class.type }
+        .from(nil).to(type.to_sym)
+    end
+  end
+
   describe '.with_element' do
     context 'when seeting element class only' do
       it do
