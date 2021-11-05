@@ -16,6 +16,12 @@ describe Magicka::Form do
       .with(partial: template, locals: locals)
   end
 
+  describe '.type' do
+    it do
+      expect(described_class.type).to eq(:form)
+    end
+  end
+
   describe '#input' do
     let(:template)    { 'templates/forms/input' }
     let(:field)       { :field }

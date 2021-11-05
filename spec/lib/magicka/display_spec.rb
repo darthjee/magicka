@@ -16,6 +16,12 @@ describe Magicka::Display do
       .with(partial: template, locals: locals)
   end
 
+  describe '.type' do
+    it do
+      expect(described_class.type).to eq(:display)
+    end
+  end
+
   describe '#input' do
     let(:template)    { 'templates/display/text' }
     let(:field)       { :field }
