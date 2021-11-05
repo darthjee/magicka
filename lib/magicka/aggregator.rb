@@ -14,6 +14,7 @@ module Magicka
 
     attr_reader :model
     # @method model
+    # @api public
     # 
     # Model where the form elements will focus
     #
@@ -42,6 +43,7 @@ module Magicka
       yield self.class.new(renderer, new_model)
     end
 
+    # @api private
     # Checks if other aggragate is equal to this one
     #
     # @param [Object] other object to be compared

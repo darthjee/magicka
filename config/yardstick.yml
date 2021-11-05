@@ -23,6 +23,8 @@ rules:
     enabled: true
     exclude:
       - Magicka::Element#initialize
+      - Magicka::Aggregator#initialize
+      - Magicka::Aggregator::MethodBuilder#initialize
   Summary::Length:
     enabled: true
     exclude: []
