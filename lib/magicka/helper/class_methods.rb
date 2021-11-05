@@ -4,11 +4,7 @@ module Magicka
   module Helper
     module ClassMethods
       def with(aggregator_class, type = aggregator_class.type)
-        Sinclair.new(self).tap do |builder|
-          builder.add_method("magicka_#{type}") do |model, &block|
-            block.call(aggregator_class.new(self, model))
-          end
-        end.build
+        MethodBuilder.new(self).build_aggregator(aggregator_class, type)
       end
     end
   end
