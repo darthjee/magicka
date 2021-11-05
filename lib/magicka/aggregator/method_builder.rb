@@ -21,6 +21,9 @@ module Magicka
         @template = template
       end
 
+      # Prepare methods to be built
+      #
+      # @return [Aggregator::MethodBuilder] return self
       def prepare
         element_klass = element_class
         template_file = template
@@ -39,7 +42,24 @@ module Magicka
       private
 
       attr_reader :element_class, :template
+      # @method element_class
+      #
+      # Class of the element to be rendered by the method
+      #
+      # @return [Class<Magicka::Element>]
+      
+      # @method template
+      #
+      # template file
+      #
+      # @return [String]
 
+      # name of the method to be generated
+      #
+      # When the method name was not supplied in the constructor,
+      # it is infered from {#element_class}
+      #
+      # @return [String,Symbol]
       def method_name
         @method_name ||= element_class
                          .name
