@@ -28,7 +28,7 @@ module Magicka
       def type(new_type = nil)
         return @type ||= default_type unless new_type
 
-        @type = args.first.to_sym
+        @type = new_type.to_sym
       end
 
       private
