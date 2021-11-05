@@ -13,6 +13,22 @@ describe Magicka::Helper do
 
   let(:model) { 'model' }
 
+  describe '.with' do
+    let(:aggregator_class) do
+      Class.new(Magicka::Aggregator) do
+        def self.name
+          'Magicka::MyClass'
+        end
+      end
+    end
+
+    it do
+      expect { described_class.with(aggregator_class) }
+        .to add_method('magicka_my_class')
+        .to(object)
+    end
+  end
+
   describe '#magicka_display' do
     it do
       object.magicka_display(model) do |display|
