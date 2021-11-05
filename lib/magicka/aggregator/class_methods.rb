@@ -4,7 +4,6 @@ module Magicka
   class Aggregator
     # Class methods for {Magicka::Aggregator}
     module ClassMethods
-
       # Configure an {Aggregator} adding a method to render an element
       #
       # @param element_class [Class<Magicka::ELement>]
@@ -20,8 +19,14 @@ module Magicka
       end
 
       # Set and return the type of the aggregator
-      def type(*args)
-        return @type ||= default_type if args.empty?
+      #
+      # When new_type is ommited, returns the last value
+      #
+      # @param new_type [Symbol,String] The value to be set
+      #
+      # @return [Symbol] the type of the aggregator
+      def type(new_type = nil)
+        return @type ||= default_type unless new_type
 
         @type = args.first.to_sym
       end
