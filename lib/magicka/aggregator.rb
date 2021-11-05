@@ -12,6 +12,21 @@ module Magicka
       include Aggregator::ClassMethods
     end
 
+    # @method with_element(element_class, method_name = nil, template: nil)
+    #
+    # Configure an {Aggregator} adding a method to render an element
+    #
+    # @param element_class [Class<Magicka::ELement>]
+    #   Class of the element to be rendered
+    # @param method_name [String,Symbol]
+    #   Name of the method that will render the element
+    # @param template [String] custom template file to be used
+    # 
+    # @see Aggregator::ClassMethods#with_element
+    # @see Aggregator::MethodBuilder
+    #
+    # @return [Array<NilClass>]
+
     attr_reader :model
     # @method model
     # @api public

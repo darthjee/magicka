@@ -6,6 +6,7 @@ module Magicka
     #
     # Class responsible for building an {Aggregator} method
     class MethodBuilder < Sinclair
+      # @param (see Aggregator::ClassMethods#with_element)
       def initialize(klass, element_class, method_name = nil, template: nil)
         super(klass)
 

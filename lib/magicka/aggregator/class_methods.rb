@@ -4,15 +4,7 @@ module Magicka
   class Aggregator
     # Class methods for {Magicka::Aggregator}
     module ClassMethods
-      # Configure an {Aggregator} adding a method to render an element
-      #
-      # @param element_class [Class<Magicka::ELement>]
-      #   Class of the element to be rendered
-      # @param method_name [String,Symbol]
-      #   Name of the method that will render the element
-      # @param template [String] custom template file to be used
-      #
-      # @return [Array<NilClass>]
+      # (see Aggregator.with_element)
       def with_element(element_class, method_name = nil, template: nil)
         MethodBuilder
           .new(self, element_class, method_name, template: template)
