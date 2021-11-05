@@ -15,7 +15,7 @@ module Magicka
 
     # @method self.with(aggregator_class, type = aggregator_class.type)
     #
-    # Adds a helper method magicka_(type)
+    # Adds a helper method magicka_+type+
     #
     # The created method executes a block with a an aggragator
     #

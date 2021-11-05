@@ -12,7 +12,15 @@ module Magicka
       include Aggregator::ClassMethods
     end
 
-    # @method with_element(element_class, method_name = nil, template: nil)
+    attr_reader :model
+    # @method model
+    # @api public
+    # 
+    # Model where the form elements will focus
+    #
+    # @return [String]
+
+    # @method self.with_element(element_class, method_name = nil, template: nil)
     #
     # Configure an {Aggregator} adding a method to render an element
     #
@@ -26,14 +34,6 @@ module Magicka
     # @see Aggregator::MethodBuilder
     #
     # @return [Array<NilClass>]
-
-    attr_reader :model
-    # @method model
-    # @api public
-    # 
-    # Model where the form elements will focus
-    #
-    # @return [String]
 
     # @param renderer [ActionView::Base] Object responsible for rendering
     # @param model [String] Model where the form elements will focus

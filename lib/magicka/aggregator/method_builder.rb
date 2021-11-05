@@ -6,7 +6,13 @@ module Magicka
     #
     # Class responsible for building an {Aggregator} method
     class MethodBuilder < Sinclair
-      # @param (see Aggregator::ClassMethods#with_element)
+      # @param klass [Class.new<Aggregator>]
+      #   Aggragator class to receive the method
+      # @param element_class [Class<Magicka::ELement>]
+      #   Class of the element to be rendered
+      # @param method_name [String,Symbol]
+      #   Name of the method that will render the element
+      # @param template [String] custom template file to be used
       def initialize(klass, element_class, method_name = nil, template: nil)
         super(klass)
 
