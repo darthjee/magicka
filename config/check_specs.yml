@@ -2,4 +2,3 @@ ignore:
   - lib/magicka/version.rb
   - lib/magicka.rb
   - lib/magicka/aggregator/method_builder.rb
-  - lib/magicka/helper.rb
