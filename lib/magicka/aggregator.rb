@@ -6,24 +6,10 @@ module Magicka
   # Class representing an element agregator, representing a model
   class Aggregator
     autoload :MethodBuilder, 'magicka/aggregator/method_builder'
+    autoload :ClassMethods,  'magicka/aggregator/class_methods'
 
     class << self
-      def with_element(element_class, method_name = nil, template: nil)
-        MethodBuilder
-          .new(self, element_class, method_name, template: template)
-          .prepare
-          .build
-      end
-
-      def type(*args)
-        return @type ||= default_type if args.empty?
-
-        @type = args.first.to_sym
-      end
-
-      def default_type
-        name&.demodulize&.underscore&.to_sym
-      end
+      include Aggregator::ClassMethods
     end
 
     attr_reader :model
