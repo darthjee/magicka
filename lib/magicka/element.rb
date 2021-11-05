@@ -33,6 +33,9 @@ module Magicka
     # @return [Array]
 
     # Render element HTML
+    # @api private
+    #
+    # @return [ActionView::OutputBuffer]
     def render
       renderer.render partial: template, locals: locals
     end
