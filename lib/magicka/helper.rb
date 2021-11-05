@@ -19,8 +19,10 @@ module Magicka
     #
     # The created method executes a block with a an aggragator
     #
-    # @param aggregator_class [Class<Magicka::Aggregator>] Agragator to be initialized
-    # @param type [String,Symbol] type of aggregator, this will define the method name
+    # @param aggregator_class [Class<Magicka::Aggregator>]
+    #   Agragator to be initialized
+    # @param type [String,Symbol] type of aggregator,
+    #   this will define the method name
     #
     # @return Array<NilClass>
 
