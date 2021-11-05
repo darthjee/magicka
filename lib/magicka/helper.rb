@@ -34,7 +34,7 @@ module Magicka
     #
     # @param model [String] Model to be processed
     #
-    # @yield Render a form using the aggregator
+    # @yield [Magicka::Form] Agregator to edit a model
     #
     # @see Magicka::Form
     #
@@ -48,7 +48,7 @@ module Magicka
     #
     # @param model [String] Model to be processed
     #
-    # @yield Render a form using the aggregator
+    # @yield [Magicka::Display] Agregator to show a model
     #
     # @see Magicka::Display
     #
