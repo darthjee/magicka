@@ -16,7 +16,7 @@ describe Magicka::Aggregator do
 
     it 'sets aggregator type' do
       expect { aggregator_class.type(type) }
-        .to change { aggregator_class.type }
+        .to change(aggregator_class, :type)
         .from(nil).to(type.to_sym)
     end
 
@@ -24,7 +24,7 @@ describe Magicka::Aggregator do
       let(:aggregator_class) do
         Class.new(described_class) do
           def self.name
-            "Magicka::MyClass"
+            'Magicka::MyClass'
           end
         end
       end

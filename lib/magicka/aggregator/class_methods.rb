@@ -16,6 +16,8 @@ module Magicka
         @type = args.first.to_sym
       end
 
+      private
+
       def default_type
         name&.demodulize&.underscore&.to_sym
       end
