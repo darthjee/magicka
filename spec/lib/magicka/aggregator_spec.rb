@@ -233,7 +233,9 @@ describe Magicka::Aggregator do
   end
 
   describe '#with_model' do
-    let(:expected_aggregator) { aggregator_class.new(renderer, 'my_model.inner') }
+    let(:expected_aggregator) do
+      aggregator_class.new(renderer, 'my_model.inner')
+    end
 
     it do
       aggregator.with_model(:inner) do |new_aggregator|
@@ -242,7 +244,7 @@ describe Magicka::Aggregator do
     end
   end
 
-  describe "#only" do
+  describe '#only' do
     let(:aggregator_class) do
       Class.new(described_class) do
         type :included
@@ -268,7 +270,7 @@ describe Magicka::Aggregator do
     end
   end
 
-  describe "#except" do
+  describe '#except' do
     let(:aggregator_class) do
       Class.new(described_class) do
         type :included

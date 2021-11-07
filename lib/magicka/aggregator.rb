@@ -58,13 +58,13 @@ module Magicka
       yield self.class.new(renderer, new_model)
     end
 
-    def only(*types, &block)
+    def only(*types)
       return unless types.include?(self.class.type)
 
       yield
     end
 
-    def except(*types, &block)
+    def except(*types)
       return if types.include?(self.class.type)
 
       yield
