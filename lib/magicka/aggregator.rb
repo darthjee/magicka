@@ -58,6 +58,28 @@ module Magicka
       yield self.class.new(renderer, new_model)
     end
 
+    # Executes a block only when aggregator is one of given types
+    #
+    # @param types [Array<Symbol>] posssible types
+    #
+    # @return [Object] Result of the block
+    def only(*types)
+      return unless types.include?(self.class.type)
+
+      yield
+    end
+
+    # Executes a block only when aggregator is not one of given types
+    #
+    # @param types [Array<Symbol>] posssible types
+    #
+    # @return [Object] Result of the block
+    def except(*types)
+      return if types.include?(self.class.type)
+
+      yield
+    end
+
     # @api private
     # Checks if other aggragate is equal to this one
     #

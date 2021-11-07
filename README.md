@@ -14,7 +14,7 @@ such as AngulaJS
 
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/magicka/0.5.6](https://www.rubydoc.info/gems/magicka/0.5.6)
+[https://www.rubydoc.info/gems/magicka/0.6.0](https://www.rubydoc.info/gems/magicka/0.6.0)
 
 Installation
 ---------------
