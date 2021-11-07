@@ -186,4 +186,44 @@ describe Magicka::Form do
       end
     end
   end
+
+  describe '#only' do
+    context 'when the type is included in the list' do
+      it 'executes the block' do
+        value = 0
+
+        form.only(:not_included, :form, :other) { value += 1 }
+        expect(value).to eq(1)
+      end
+    end
+
+    context 'when the type is not included in the list' do
+      it 'does not execute the block' do
+        value = 0
+
+        form.only(:not_included, :other) { value += 1 }
+        expect(value).to be_zero
+      end
+    end
+  end
+
+  describe '#except' do
+    context 'when the type is included in the list' do
+      it 'does not execute the block' do
+        value = 0
+
+        form.except(:not_included, :form, :other) { value += 1 }
+        expect(value).to be_zero
+      end
+    end
+
+    context 'when the type is not included in the list' do
+      it 'executes the block' do
+        value = 0
+
+        form.except(:not_included, :other) { value += 1 }
+        expect(value).to eq(1)
+      end
+    end
+  end
 end
