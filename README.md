@@ -66,7 +66,11 @@ different ways
 <%= form.input(:last_name) %>
 <%= form.input(:age) %>
 <%= form.select(:gender, options: %w[MALE FEMALE] %>
-<%= form.button(ng_click: 'controller.save', text: 'Save') %>
+
+<%= form.only(:form) do %>
+  <!-- this block only appears in a form -->
+  <%= form.button(ng_click: 'controller.save', text: 'Save') %>
+<% end %>
 ```
 
 ## Configuring
