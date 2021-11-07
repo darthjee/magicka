@@ -267,4 +267,30 @@ describe Magicka::Aggregator do
       end
     end
   end
+
+  describe "#except" do
+    let(:aggregator_class) do
+      Class.new(described_class) do
+        type :included
+      end
+    end
+
+    context 'when the type is included in the list' do
+      it 'does not execute the block' do
+        value = 0
+
+        aggregator.except(:not_included, :included, :other) { value += 1 }
+        expect(value).to be_zero
+      end
+    end
+
+    context 'when the type is not included in the list' do
+      it 'executes the block' do
+        value = 0
+
+        aggregator.except(:not_included, :other) { value += 1 }
+        expect(value).to eq(1)
+      end
+    end
+  end
 end

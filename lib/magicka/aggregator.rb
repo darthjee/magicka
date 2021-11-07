@@ -64,6 +64,12 @@ module Magicka
       yield
     end
 
+    def except(*types, &block)
+      return if types.include?(self.class.type)
+
+      yield
+    end
+
     # @api private
     # Checks if other aggragate is equal to this one
     #
