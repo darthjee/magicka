@@ -231,4 +231,14 @@ describe Magicka::Aggregator do
       end
     end
   end
+
+  describe '#with_model' do
+    let(:expected_aggregator) { aggregator_class.new(renderer, 'my_model.inner') }
+
+    it do
+      aggregator.with_model(:inner) do |new_aggregator|
+        expect(new_aggregator).to eq(expected_aggregator)
+      end
+    end
+  end
 end
