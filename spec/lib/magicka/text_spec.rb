@@ -36,7 +36,7 @@ describe Magicka::Text do
     end
 
     it do
-      described_class.render(arguments)
+      described_class.render(**arguments)
 
       expect(renderer).to have_received(:render)
     end

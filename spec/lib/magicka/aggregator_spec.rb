@@ -76,7 +76,7 @@ describe Magicka::Aggregator do
         end
 
         it 'renders an input' do
-          aggregator.input(field, arguments)
+          aggregator.input(field, **arguments)
 
           expect(renderer).to have_received(:render)
         end
@@ -140,7 +140,7 @@ describe Magicka::Aggregator do
         end
 
         it 'renders an input' do
-          aggregator.my_input(field, arguments)
+          aggregator.my_input(field, **arguments)
 
           expect(renderer).to have_received(:render)
         end
@@ -206,7 +206,7 @@ describe Magicka::Aggregator do
         end
 
         it 'renders an input' do
-          aggregator.input(field, arguments)
+          aggregator.input(field, **arguments)
 
           expect(renderer).to have_received(:render)
         end
