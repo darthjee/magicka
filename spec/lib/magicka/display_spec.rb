@@ -45,7 +45,7 @@ describe Magicka::Display do
     end
 
     it 'renders a text' do
-      form.input(field, arguments)
+      form.input(field, **arguments)
 
       expect(renderer).to have_received(:render)
     end
@@ -91,7 +91,7 @@ describe Magicka::Display do
     end
 
     it 'renders a text' do
-      form.select(field, arguments)
+      form.select(field, **arguments)
 
       expect(renderer).to have_received(:render)
     end
@@ -130,7 +130,7 @@ describe Magicka::Display do
     end
 
     it 'renders nothing' do
-      form.button(arguments)
+      form.button(**arguments)
 
       expect(renderer).not_to have_received(:render)
     end

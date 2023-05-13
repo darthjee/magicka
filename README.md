@@ -12,9 +12,13 @@ Magicka
 Magica helps creating html templates for forms and display data using js applications
 such as AngulaJS
 
+Current Release: [2.0.0](https://github.com/darthjee/magicka/tree/1.0.0)
+
+[Next release](https://github.com/darthjee/magicka/compare/1.0.0...master)
+
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/magicka/0.6.0](https://www.rubydoc.info/gems/magicka/0.6.0)
+[https://www.rubydoc.info/gems/magicka/1.0.0](https://www.rubydoc.info/gems/magicka/1.0.0)
 
 Installation
 ---------------
