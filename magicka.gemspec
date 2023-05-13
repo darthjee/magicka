@@ -47,4 +47,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'sqlite3',                  '1.4.2'
   gem.add_development_dependency 'yard',                     '0.9.26'
   gem.add_development_dependency 'yardstick',                '0.9.9'
+  gem.add_development_dependency 'tzinfo-data',              '~> 1.2022.1'
 end
