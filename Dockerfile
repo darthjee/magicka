@@ -19,3 +19,4 @@ FROM base
 
 COPY --chown=app:app --from=builder /home/app/bundle/ /usr/local/bundle/
 RUN bundle install
+RUN bundle clean --force
