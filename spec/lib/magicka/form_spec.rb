@@ -46,7 +46,7 @@ describe Magicka::Form do
     end
 
     it 'renders an input' do
-      form.input(field, arguments)
+      form.input(field, **arguments)
 
       expect(renderer).to have_received(:render)
     end
@@ -94,7 +94,7 @@ describe Magicka::Form do
     end
 
     it 'renders a select' do
-      form.select(field, arguments)
+      form.select(field, **arguments)
 
       expect(renderer).to have_received(:render)
     end
@@ -144,7 +144,7 @@ describe Magicka::Form do
     end
 
     it 'renders an input' do
-      form.button(arguments)
+      form.button(**arguments)
 
       expect(renderer).to have_received(:render)
     end

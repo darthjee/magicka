@@ -44,7 +44,7 @@ describe Magicka::FormElement do
       end
 
       it do
-        klass.render(arguments)
+        klass.render(**arguments)
 
         expect(renderer).to have_received(:render)
       end
@@ -70,7 +70,7 @@ describe Magicka::FormElement do
       end
 
       it do
-        klass.render(arguments)
+        klass.render(**arguments)
 
         expect(renderer).to have_received(:render)
       end
