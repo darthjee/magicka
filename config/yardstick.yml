@@ -23,7 +23,7 @@ rules:
       - Magicka::Form#select
       - Magicka::Form#input
       - Magicka::Display#select
-      - Magicka::Displayinput
+      - Magicka::Display#input
   Summary::Presence:
     enabled: true
     exclude:
