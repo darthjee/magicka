@@ -41,15 +41,17 @@ module Magicka
 
       private
 
-      attr_reader :element_class, :template
-      # @method element_class
-      # @api private
       # @private
       #
       # Class of the element to be rendered by the method
       #
       # @return [Class<Magicka::Element>]
+      def element_class
+        return @element_class if @element_class.is_a?(Class)
+        @element_class = @element_class.constantize
+      end
 
+      attr_reader :template
       # @method template
       # @api private
       # @private
