@@ -35,7 +35,7 @@ module Magicka
       #
       # @return [Aggregator::MethodBuilder] return self
       def prepare
-        self.tap do |builder|
+        tap do |builder|
           add_method(method_name) do |field, model: self.model, **args|
             builder.element_class.render(
               renderer: renderer, field: field,
@@ -73,9 +73,9 @@ module Magicka
       # @return [String,Symbol]
       def method_name
         @method_name ||= element_class
-          .to_s
-          .underscore
-          .gsub(%r{.*/}, '')
+                         .to_s
+                         .underscore
+                         .gsub(%r{.*/}, '')
       end
     end
   end
