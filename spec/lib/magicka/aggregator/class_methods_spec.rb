@@ -37,9 +37,11 @@ describe Magicka::Aggregator::ClassMethods do
   end
 
   describe '.with_element' do
+    let(:element_class) { Magicka::Input }
+
     context 'when seeting element class only' do
       it do
-        expect { aggregator_class.with_element(Magicka::Input) }
+        expect { aggregator_class.with_element(element_class) }
           .to add_method(:input)
           .to(aggregator)
       end
@@ -68,7 +70,7 @@ describe Magicka::Aggregator::ClassMethods do
         end
 
         before do
-          aggregator_class.with_element(Magicka::Input)
+          aggregator_class.with_element(element_class)
 
           allow(renderer)
             .to receive(:render)
@@ -103,7 +105,7 @@ describe Magicka::Aggregator::ClassMethods do
 
     context 'when seeting element class and method' do
       it do
-        expect { aggregator_class.with_element(Magicka::Input, :my_input) }
+        expect { aggregator_class.with_element(element_class, :my_input) }
           .to add_method(:my_input)
           .to(aggregator)
       end
@@ -132,7 +134,7 @@ describe Magicka::Aggregator::ClassMethods do
         end
 
         before do
-          aggregator_class.with_element(Magicka::Input, :my_input)
+          aggregator_class.with_element(element_class, :my_input)
 
           allow(renderer)
             .to receive(:render)
@@ -168,7 +170,7 @@ describe Magicka::Aggregator::ClassMethods do
     context 'when seeting element class and template' do
       it do
         expect do
-          aggregator_class.with_element(Magicka::Input, template: template)
+          aggregator_class.with_element(element_class, template: template)
         end
           .to add_method(:input)
           .to(aggregator)
@@ -198,7 +200,7 @@ describe Magicka::Aggregator::ClassMethods do
         end
 
         before do
-          aggregator_class.with_element(Magicka::Input, template: template)
+          aggregator_class.with_element(element_class, template: template)
 
           allow(renderer)
             .to receive(:render)
