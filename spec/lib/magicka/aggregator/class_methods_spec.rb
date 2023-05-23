@@ -334,8 +334,7 @@ describe Magicka::Aggregator::ClassMethods do
         before do
           aggregator_class.with_element(element_class, :input)
 
-          class Magicka::MyInput < Magicka::Input
-          end
+          Magicka.const_set(:MyInput, Class.new(Magicka::Input))
 
           allow(renderer)
             .to receive(:render)
