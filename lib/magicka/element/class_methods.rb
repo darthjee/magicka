@@ -11,6 +11,8 @@ module Magicka
       # @param renderer [Object] object responsible for rendering
       #   the HTML
       # @param args [Hash] Extra options
+      #
+      # @return (see Magicka::Element#render)
       def render(renderer:, **args)
         new(renderer: renderer, **args).render
       end
