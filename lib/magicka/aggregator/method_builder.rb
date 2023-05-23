@@ -6,13 +6,23 @@ module Magicka
     #
     # Class responsible for building an {Aggregator} method
     class MethodBuilder < Sinclair
-      # @param klass [Class.new<Aggregator>]
-      #   Aggragator class to receive the method
-      # @param element_class [Class<Magicka::ELement>]
-      #   Class of the element to be rendered
-      # @param method_name [String,Symbol]
-      #   Name of the method that will render the element
-      # @param template [String] custom template file to be used
+      # @overload initialize(klass, element_class, method_name = nil, template: nil)
+      #   @param element_class [Class<Magicka::Element>]
+      #     Class of the element to be rendered
+      #   @param klass [Class<Aggregator>]
+      #     Aggragator class to receive the method
+      #   @param method_name [String,Symbol]
+      #     Name of the method that will render the element
+      #   @param template [String] custom template file to be used
+      #
+      # @overload initialize(klass, element_class_name, method_name = nil, template: nil)
+      #   @param element_class_name [String]
+      #     String name of Class of the element to be rendered
+      #   @param klass [Class<Aggregator>]
+      #     Aggragator class to receive the method
+      #   @param method_name [String,Symbol]
+      #     Name of the method that will render the element
+      #   @param template [String] custom template file to be used
       def initialize(klass, element_class, method_name = nil, template: nil)
         super(klass)
 
@@ -25,13 +35,12 @@ module Magicka
       #
       # @return [Aggregator::MethodBuilder] return self
       def prepare
-        element_klass = element_class
-        template_file = template
+        builder = self
 
         add_method(method_name) do |field, model: self.model, **args|
-          element_klass.render(
+          builder.element_class.render(
             renderer: renderer, field: field,
-            model: model, template: template_file,
+            model: model, template: builder.template,
             **args
           )
         end
@@ -39,24 +48,24 @@ module Magicka
         self
       end
 
-      private
-
-      attr_reader :element_class, :template
-      # @method element_class
-      # @api private
-      # @private
-      #
       # Class of the element to be rendered by the method
       #
       # @return [Class<Magicka::Element>]
+      def element_class
+        return @element_class if @element_class.is_a?(Class)
 
+        @element_class = @element_class.constantize
+      end
+
+      attr_reader :template
       # @method template
       # @api private
-      # @private
       #
       # template file
       #
       # @return [String]
+
+      private
 
       # name of the method to be generated
       #
@@ -66,7 +75,7 @@ module Magicka
       # @return [String,Symbol]
       def method_name
         @method_name ||= element_class
-                         .name
+                         .to_s
                          .underscore
                          .gsub(%r{.*/}, '')
       end
