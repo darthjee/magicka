@@ -300,7 +300,7 @@ describe Magicka::Aggregator::ClassMethods do
     end
 
     context 'when element class is defined with a string and the element loaded later' do
-      let(:element_class) { 'Magicka::MyInput' }
+      let(:element_class) { 'Magicka::SpecDefinedInput' }
 
       it do
         expect { aggregator_class.with_element(element_class, :input) }
@@ -332,9 +332,9 @@ describe Magicka::Aggregator::ClassMethods do
         end
 
         before do
-          aggregator_class.with_element(element_class, :input)
+          aggregator_class.with_element(element_class, :input, template: template)
 
-          Magicka.const_set(:MyInput, Class.new(Magicka::Input))
+          Magicka.const_set(:SpecDefinedInput, Class.new(Magicka::Input))
 
           allow(renderer)
             .to receive(:render)
