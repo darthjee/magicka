@@ -42,12 +42,12 @@ module Magicka
 
     private
 
-    attr_reader :renderer
     # @api private
     # @private
     # @method renderer
     #
     # Object responsible for rendering the HTML
+    attr_reader :renderer
 
     # @api private
     # @private
