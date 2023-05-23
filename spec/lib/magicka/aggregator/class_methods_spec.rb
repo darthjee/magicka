@@ -232,5 +232,71 @@ describe Magicka::Aggregator::ClassMethods do
         end
       end
     end
+
+    context 'when element class is defined with a string' do
+      let(:element_class) { 'Magicka::Input' }
+
+      it do
+        expect { aggregator_class.with_element(element_class) }
+          .to add_method(:input)
+          .to(aggregator)
+      end
+
+      context 'when built method is called' do
+        let(:template)    { 'templates/forms/input' }
+        let(:field)       { :field }
+        let(:label)       { 'Label' }
+        let(:placeholder) { 'Value' }
+
+        let(:locals) do
+          {
+            field: field,
+            label: label,
+            ng_errors: 'my_model.errors.field',
+            ng_model: 'my_model.field',
+            placeholder: placeholder
+          }
+        end
+
+        let(:arguments) do
+          {
+            label: label,
+            placeholder: placeholder
+          }
+        end
+
+        before do
+          aggregator_class.with_element(element_class)
+
+          allow(renderer)
+            .to receive(:render)
+            .with(partial: template, locals: locals)
+        end
+
+        it 'renders an input' do
+          aggregator.input(field, **arguments)
+
+          expect(renderer).to have_received(:render)
+        end
+
+        context 'when passing a custom model' do
+          let(:locals) do
+            {
+              field: field,
+              label: label,
+              ng_errors: 'my_custom_model.errors.field',
+              ng_model: 'my_custom_model.field',
+              placeholder: placeholder
+            }
+          end
+
+          it 'renders an input' do
+            aggregator.input(field, model: 'my_custom_model', **arguments)
+
+            expect(renderer).to have_received(:render)
+          end
+        end
+      end
+    end
   end
 end
