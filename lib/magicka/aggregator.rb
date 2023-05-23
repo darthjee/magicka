@@ -21,6 +21,7 @@ module Magicka
     # @return [String]
 
     # @method self.with_element(element_class, method_name = nil, template: nil)
+    # @api public
     #
     # Configure an {Aggregator} adding a method to render an element
     #
