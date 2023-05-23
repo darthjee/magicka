@@ -24,16 +24,14 @@ module Magicka
     #
     # Configure an {Aggregator} adding a method to render an element
     #
-    # @overload
-    #   with_element(element_class, method_name = nil, template: nil)
+    # @overload with_element(element_class, method_name = nil, template: nil)
     #   @param element_class [Class<Magicka::Element>]
     #     Class of the element to be rendered
     #   @param method_name [String,Symbol]
     #     Name of the method that will render the element
     #   @param template [String] custom template file to be used
     #
-    # @overload
-    #   with_element(element_class_name, method_name = nil, template: nil)
+    # @overload with_element(element_class_name, method_name = nil, template: nil)
     #   @param element_class_name [String]
     #     String representation of a class of {Magicka::Element}
     #     of the element to be rendered
