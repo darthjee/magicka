@@ -13,7 +13,7 @@ module Magicka
     # Used to not render a button when using
     # display and not form
     #
-    # #return [NilClass]
+    # @return [NilClass]
     def button(**_args); end
 
     # @method input(field, model: self.model, **options)

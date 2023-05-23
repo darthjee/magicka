@@ -35,17 +35,15 @@ module Magicka
       #
       # @return [Aggregator::MethodBuilder] return self
       def prepare
-        builder = self
-
-        add_method(method_name) do |field, model: self.model, **args|
-          builder.element_class.render(
-            renderer: renderer, field: field,
-            model: model, template: builder.template,
-            **args
-          )
+        tap do |builder|
+          add_method(method_name) do |field, model: self.model, **args|
+            builder.element_class.render(
+              renderer: renderer, field: field,
+              model: model, template: builder.template,
+              **args
+            )
+          end
         end
-
-        self
       end
 
       # Class of the element to be rendered by the method
@@ -57,13 +55,13 @@ module Magicka
         @element_class = @element_class.constantize
       end
 
-      attr_reader :template
       # @method template
       # @api private
       #
-      # template file
+      # Template file
       #
       # @return [String]
+      attr_reader :template
 
       private
 

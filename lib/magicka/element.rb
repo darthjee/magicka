@@ -42,12 +42,14 @@ module Magicka
 
     private
 
-    attr_reader :renderer
     # @api private
     # @private
     # @method renderer
     #
     # Object responsible for rendering the HTML
+    #
+    # @return [ActionView::Base]
+    attr_reader :renderer
 
     # @api private
     # @private
@@ -73,7 +75,7 @@ module Magicka
       end
     end
 
-    # @api public
+    # @api private
     # @private
     #
     # Returns template file location
