@@ -18,7 +18,10 @@ rules:
     exclude: []
   ReturnTag:
     enabled: true
-    exclude: []
+    exclude:
+      - Magicka::Form#button
+      - Magicka::Form#select
+      - Magicka::Form#input
   Summary::Presence:
     enabled: true
     exclude:
