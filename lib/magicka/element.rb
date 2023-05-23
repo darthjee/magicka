@@ -47,7 +47,9 @@ module Magicka
     # @method renderer
     #
     # Object responsible for rendering the HTML
-    attr_reader :renderer
+    #
+    # @return [ActionView::Base]
+    attr_readr :renderer
 
     # @api private
     # @private
