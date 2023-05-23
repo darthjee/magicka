@@ -55,13 +55,13 @@ module Magicka
         @element_class = @element_class.constantize
       end
 
-      attr_reader :template
       # @method template
       # @api private
       #
-      # template file
+      # Template file
       #
       # @return [String]
+      attr_reader :template
 
       private
 
