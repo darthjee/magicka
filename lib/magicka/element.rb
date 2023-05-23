@@ -75,7 +75,7 @@ module Magicka
       end
     end
 
-    # @api public
+    # @api private
     # @private
     #
     # Returns template file location
