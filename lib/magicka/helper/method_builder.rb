@@ -18,8 +18,6 @@ module Magicka
         add_method("magicka_#{type}") do |model, &block|
           block.call(builder.aggregator_class.new(self, model))
         end
-
-        build
       end
 
       attr_reader :aggregator_class, :type

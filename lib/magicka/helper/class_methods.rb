@@ -6,7 +6,9 @@ module Magicka
     module ClassMethods
       # (see Magicka::Helper.with)
       def with(aggregator_class, type = aggregator_class.type)
-        MethodBuilder.new(self, aggregator_class, type).build_aggregator
+        MethodBuilder.build(self, aggregator_class, type) do
+          build_aggregator
+        end
       end
     end
   end
