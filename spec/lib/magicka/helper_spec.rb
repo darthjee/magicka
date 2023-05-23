@@ -22,10 +22,23 @@ describe Magicka::Helper do
       end
     end
 
-    it do
-      expect { described_class.with(aggregator_class) }
-        .to add_method('magicka_my_class')
-        .to(object)
+    context 'when passing a class' do
+      it do
+        expect { described_class.with(aggregator_class) }
+          .to add_method('magicka_my_class')
+          .to(object)
+      end
+    end
+
+    context 'when passing a string as agregator' do
+      let(:aggregator_name) { :Test1Aggregator }
+      let(:aggregator_class_name) { "Magicka::#{aggregator_name}" }
+
+      it do
+        expect { described_class.with(aggregator_class_name, :test1_aggregator) }
+          .to add_method('magicka_test1_aggregator')
+          .to(object)
+      end
     end
   end
 
