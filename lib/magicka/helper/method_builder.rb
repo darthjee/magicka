@@ -4,9 +4,9 @@ module Magicka
   module Helper
     # Builds methods for {Magicka::Helper}
     class MethodBuilder < Sinclair
-      def initialize(klass, aggregator_class, type = aggregator_class.type)
+      def initialize(klass, aggregator_class, type = nil)
         @aggregator_class = aggregator_class
-        @type             = type
+        @type             = type || aggregator_class.type
 
         super(klass)
       end
@@ -20,7 +20,13 @@ module Magicka
         end
       end
 
-      attr_reader :aggregator_class, :type
+      def aggregator_class
+        return @aggregator_class if @aggregator_class.is_a?(Class)
+
+        @aggregator_class = @aggregator_class.constantize
+      end
+
+      attr_reader :type
     end
   end
 end
