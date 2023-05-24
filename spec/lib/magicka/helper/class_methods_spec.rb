@@ -39,6 +39,20 @@ describe Magicka::Helper::ClassMethods do
           end
         end
       end
+
+      context 'when an element is added in the block' do
+        before do
+          helper_class.with(aggregator_class) do
+            with_element(Magicka::Input, :my_input)
+          end
+        end
+
+        it do
+          object.magicka_my_class(model) do |aggregator|
+            expect(aggregator).to respond_to(:my_input)
+          end
+        end
+      end
     end
 
     context 'when passing a string as agregator' do
@@ -61,6 +75,22 @@ describe Magicka::Helper::ClassMethods do
         it do
           object.magicka_test1_aggregator(model) do |aggregator|
             expect(aggregator).to be_a(aggregator_class)
+          end
+        end
+      end
+
+      context 'when an element is added in the block' do
+        before do
+          helper_class.with(aggregator_class_name, :test1_aggregator) do
+            with_element(Magicka::Input, :my_input)
+          end
+
+          Magicka.const_set(aggregator_name, aggregator_class)
+        end
+
+        it do
+          object.magicka_test1_aggregator(model) do |aggregator|
+            expect(aggregator).to respond_to(:my_input)
           end
         end
       end
