@@ -29,6 +29,8 @@ module Magicka
         end
       end
 
+      private
+
       attr_reader :type, :config_block
     end
   end
