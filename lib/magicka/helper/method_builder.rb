@@ -4,7 +4,7 @@ module Magicka
   module Helper
     # Builds methods for {Magicka::Helper}
     class MethodBuilder < Sinclair
-      def initialize(klass, aggregator_class, type = nil, config_block)
+      def initialize(klass, aggregator_class, type = nil, config_block = nil)
         @aggregator_class = aggregator_class
         @type             = type || aggregator_class.type
         @config_block     = config_block

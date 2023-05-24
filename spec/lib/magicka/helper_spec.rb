@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Magicka::Helper do
   subject(:object) { klass.new }
-  
+
   let(:model) { Object.new }
 
   let(:klass) do
@@ -12,8 +12,6 @@ describe Magicka::Helper do
       include Magicka::Helper
     end
   end
-
-  let(:model) { 'model' }
 
   describe '#magicka_display' do
     it do

@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Magicka::Helper::ClassMethods do
   subject(:object) { klass.new }
-  
+
   let(:model) { Object.new }
 
   let(:helper_class) { Magicka::Helper }
@@ -13,8 +13,6 @@ describe Magicka::Helper::ClassMethods do
       include Magicka::Helper
     end
   end
-
-  let(:model) { 'model' }
 
   describe '#with' do
     let(:aggregator_class) do
@@ -44,7 +42,7 @@ describe Magicka::Helper::ClassMethods do
     end
 
     context 'when passing a string as agregator' do
-      let(:aggregator_name) { :Test1Aggregator }
+      let(:aggregator_name)       { :Test1Aggregator }
       let(:aggregator_class_name) { "Magicka::#{aggregator_name}" }
 
       it do
