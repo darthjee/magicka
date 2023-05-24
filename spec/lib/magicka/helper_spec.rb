@@ -4,6 +4,8 @@ require 'spec_helper'
 
 describe Magicka::Helper do
   subject(:object) { klass.new }
+  
+  let(:model) { Object.new }
 
   let(:klass) do
     Class.new do
@@ -28,6 +30,16 @@ describe Magicka::Helper do
           .to add_method('magicka_my_class')
           .to(object)
       end
+
+      context 'when the method is called' do
+        before { described_class.with(aggregator_class) }
+
+        it do
+          object.magicka_my_class(model) do |aggregator|
+            expect(aggregator).to be_a(aggregator_class)
+          end
+        end
+      end
     end
 
     context 'when passing a string as agregator' do
@@ -38,6 +50,20 @@ describe Magicka::Helper do
         expect { described_class.with(aggregator_class_name, :test1_aggregator) }
           .to add_method('magicka_test1_aggregator')
           .to(object)
+      end
+
+      context 'when the method is called' do
+        before do
+          described_class.with(aggregator_class_name, :test1_aggregator)
+
+          Magicka.const_set(aggregator_name, aggregator_class)
+        end
+
+        it do
+          object.magicka_test1_aggregator(model) do |aggregator|
+            expect(aggregator).to be_a(aggregator_class)
+          end
+        end
       end
     end
   end
