@@ -29,11 +29,7 @@ module Magicka
 
       private
 
-      attr_reader :config_block
-
-      def type
-        @type || @aggregator_class.type
-      end
+      attr_reader :config_block, :type
 
       def build_aggregator_class
         return aggregator_class unless config_block
