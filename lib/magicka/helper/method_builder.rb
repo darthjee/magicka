@@ -10,8 +10,6 @@ module Magicka
         @config_block     = config_block
 
         super(klass)
-
-        config_aggregator_class
       end
 
       # (see Magicka::Helper.with)
@@ -19,27 +17,29 @@ module Magicka
         builder = self
 
         add_method("magicka_#{type}") do |model, &block|
-          block.call(builder.aggregator_class.new(self, model))
+          block.call(builder.built_aggregator_class.new(self, model))
         end
       end
 
-      def aggregator_class
-        return @aggregator_class if @aggregator_class.is_a?(Class)
-
-        (@aggregator_class = @aggregator_class.constantize).tap do |klass|
-          config_aggregator_class
-        end
+      def built_aggregator_class
+        @built_aggregator_class ||= build_aggregator_class
       end
 
       private
 
       attr_reader :type, :config_block
 
-      def config_aggregator_class
-        return unless config_block
-        return unless @aggregator_class.is_a?(Class)
+      def build_aggregator_class
+        return aggregator_class unless config_block
 
         aggregator_class.instance_eval(&config_block)
+        aggregator_class
+      end
+
+      def aggregator_class
+        return @aggregator_class if @aggregator_class.is_a?(Class)
+
+        @aggregator_class = @aggregator_class.constantize
       end
     end
   end
