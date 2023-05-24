@@ -2,11 +2,13 @@
 
 module Magicka
   module Helper
+    # @api private
+    #
     # Builds methods for {Magicka::Helper}
     class MethodBuilder < Sinclair
       def initialize(klass, aggregator_class, type = nil, config_block = nil)
         @aggregator_class = aggregator_class
-        @type             = type || aggregator_class.type
+        @type             = type
         @config_block     = config_block
 
         super(klass)
@@ -27,7 +29,11 @@ module Magicka
 
       private
 
-      attr_reader :type, :config_block
+      attr_reader :config_block
+
+      def type
+        @type || @aggregator_class.type
+      end
 
       def build_aggregator_class
         return aggregator_class unless config_block
