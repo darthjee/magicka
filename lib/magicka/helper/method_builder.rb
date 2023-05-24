@@ -10,6 +10,8 @@ module Magicka
         @config_block     = config_block
 
         super(klass)
+
+        config_aggregator_class
       end
 
       # (see Magicka::Helper.with)
@@ -24,14 +26,21 @@ module Magicka
       def aggregator_class
         return @aggregator_class if @aggregator_class.is_a?(Class)
 
-        @aggregator_class = @aggregator_class.constantize.tap do |klass|
-          klass.instance_eval(&config_block) if config_block
+        (@aggregator_class = @aggregator_class.constantize).tap do |klass|
+          config_aggregator_class
         end
       end
 
       private
 
       attr_reader :type, :config_block
+
+      def config_aggregator_class
+        return unless config_block
+        return unless @aggregator_class.is_a?(Class)
+
+        aggregator_class.instance_eval(&config_block)
+      end
     end
   end
 end
