@@ -8,9 +8,7 @@ module Magicka
     autoload :MethodBuilder, 'magicka/aggregator/method_builder'
     autoload :ClassMethods,  'magicka/aggregator/class_methods'
 
-    class << self
-      include Aggregator::ClassMethods
-    end
+    extend Aggregator::ClassMethods
 
     attr_reader :model
     # @method model

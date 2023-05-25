@@ -9,9 +9,7 @@ module Magicka
     autoload :ClassMethods,      'magicka/helper/class_methods'
     autoload :MethodBuilder,     'magicka/helper/method_builder'
 
-    class << self
-      include Helper::ClassMethods
-    end
+    extend Helper::ClassMethods
 
     with Form
     with Display
