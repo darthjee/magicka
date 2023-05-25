@@ -10,7 +10,7 @@ module Magicka
         opts = options
 
         add_method("magicka_#{opts.type}") do |model, &block|
-          block.call(opts.configured_aggregator_class.new(self, model))
+          block.call(opts.configured_aggregator.new(self, model))
         end
       end
     end
