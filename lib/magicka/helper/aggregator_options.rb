@@ -40,10 +40,11 @@ module Magicka
       #
       # @return [Class<Aggregator>]
       def configure_aggregator
-        return aggregator unless config_block
+        klass = aggregator_class
+        return klass unless config_block
 
-        aggregator.instance_eval(&config_block)
-        aggregator
+        klass.instance_eval(&config_block)
+        klass
       end
 
       # @private
@@ -53,10 +54,10 @@ module Magicka
       # return the correct class
       #
       # @return [Class<Aggregator>]
-      def aggregator
-        return @aggregator if @aggregator.is_a?(Class)
+      def aggregator_class
+        return aggregator if aggregator.is_a?(Class)
 
-        @aggregator = @aggregator.constantize
+        aggregator.constantize
       end
     end
   end
