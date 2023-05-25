@@ -3,5 +3,5 @@
 require 'magicka'
 
 Magicka::Helper.with('Magicka::WebForm', :web_form) do
-  with(Magicka::WebInput)
+  with_element(Magicka::WebInput)
 end
