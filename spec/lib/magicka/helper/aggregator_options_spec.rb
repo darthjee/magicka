@@ -7,19 +7,19 @@ describe Magicka::Helper::AggregatorOptions do
 
   let(:options_hash) do
     {
-      aggregator_class: aggregator_class,
+      aggregator: aggregator,
       type: type,
       config_block: config_block
     }
   end
 
-  let(:aggregator_class) { Class.new(Magicka::Aggregator) }
+  let(:aggregator) { Class.new(Magicka::Aggregator) }
   let(:type)             { :my_aggregator }
   let(:config_block) do
     proc { with_element(Magicka::Input) }
   end
 
-  describe '#configured_aggregator_class' do
+  describe '#configured_aggregator' do
     let(:renderer)       { instance_double(ActionView::OutputBuffer) }
     let(:model)          { Object.new }
     let(:element_class)  { Magicka::Input }
@@ -33,15 +33,15 @@ describe Magicka::Helper::AggregatorOptions do
       )
     end
 
-    context 'when aggregator_class is a class' do
+    context 'when aggregator is a class' do
       context 'when config block is given' do
         it 'returns the given aggregator class' do
-          expect(options.configured_aggregator_class)
-            .to be(aggregator_class)
+          expect(options.configured_aggregator)
+            .to be(aggregator)
         end
 
         it 'configure the aggregator' do
-          options.configured_aggregator_class.new(renderer, model)
+          options.configured_aggregator.new(renderer, model)
             .input(:name)
 
           expect(element_class).to have_received(:render)
@@ -52,8 +52,8 @@ describe Magicka::Helper::AggregatorOptions do
         let(:config_block) { nil }
 
         it 'returns the given aggregator class' do
-          expect(options.configured_aggregator_class)
-            .to be(aggregator_class)
+          expect(options.configured_aggregator)
+            .to be(aggregator)
         end
       end
     end
