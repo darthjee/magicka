@@ -6,11 +6,11 @@ module Magicka
     module ClassMethods
       # (see Magicka::Helper.with)
       def with(aggregator_class, type = nil, &block)
-        options = AggregatorOptions.new({
+        options = AggregatorOptions.new(
           aggregator_class: aggregator_class,
           type: type,
           config_block: block
-        })
+        )
 
         MethodBuilder.build(self, options) do
           build_aggregator

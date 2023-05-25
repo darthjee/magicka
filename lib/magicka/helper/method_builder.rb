@@ -9,7 +9,6 @@ module Magicka
       # (see Magicka::Helper.with)
       def build_aggregator
         opts = options
-        binding.pry if opts.is_a?(Hash)
 
         add_method("magicka_#{opts.type}") do |model, &block|
           block.call(opts.built_aggregator_class.new(self, model))
