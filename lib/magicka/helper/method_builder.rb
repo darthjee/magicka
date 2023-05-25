@@ -6,7 +6,6 @@ module Magicka
     #
     # Builds methods for {Magicka::Helper}
     class MethodBuilder < Sinclair
-      # (see Magicka::Helper.with)
       def build_aggregator
         opts = options
 

@@ -80,8 +80,10 @@ describe Magicka::Helper::ClassMethods do
       end
 
       context 'when an element is added in the block' do
+        let(:aggregator_name) { :Test2Aggregator }
+
         before do
-          helper_class.with(aggregator_class_name, :test1_aggregator) do
+          helper_class.with(aggregator_class_name, :test2_aggregator) do
             with_element(Magicka::Input, :my_input)
           end
 
@@ -89,7 +91,7 @@ describe Magicka::Helper::ClassMethods do
         end
 
         it do
-          object.magicka_test1_aggregator(model) do |aggregator|
+          object.magicka_test2_aggregator(model) do |aggregator|
             expect(aggregator).to respond_to(:my_input)
           end
         end
