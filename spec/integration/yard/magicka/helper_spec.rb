@@ -4,6 +4,10 @@ require 'spec_helper'
 
 describe 'yard for Magicka::Helper' do
   describe '.with' do
-    it 'To be added'
+    describe 'when passing only an aggregator' do
+      it do
+        get '/web_form'
+      end
+    end
   end
 end
