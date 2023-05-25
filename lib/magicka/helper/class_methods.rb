@@ -5,7 +5,7 @@ module Magicka
     # Class methods for {Magicka::Helper}
     module ClassMethods
       # (see Magicka::Helper.with)
-      def with(aggregator_class, type = aggregator_class.type, &block)
+      def with(aggregator_class, type = nil, &block)
         options = AggregatorOptions.new({
           aggregator_class: aggregator_class,
           type: type,

@@ -9,6 +9,10 @@ module Magicka
         @built_aggregator_class ||= build_aggregator_class
       end
 
+      def type
+        @type ||= aggregator_class.type
+      end
+
       private
 
       def build_aggregator_class
