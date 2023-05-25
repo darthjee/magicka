@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 module Magicka
+  # @api public
+  #
   # Helper module to be used on rails
   module Helper
-    autoload :ClassMethods,  'magicka/helper/class_methods'
-    autoload :MethodBuilder, 'magicka/helper/method_builder'
+    autoload :AggregatorOptions, 'magicka/helper/aggregator_options'
+    autoload :ClassMethods,      'magicka/helper/class_methods'
+    autoload :MethodBuilder,     'magicka/helper/method_builder'
 
-    class << self
-      include Helper::ClassMethods
-    end
+    extend Helper::ClassMethods
 
     with Form
     with Display
 
-    # @method self.with(aggregator_class, type = aggregator_class.type)
+    # @method self.with(aggregator_class, type = aggregator_class.type, &config_block)
     # @api public
     #
     # Adds a helper method magicka_+type+
@@ -24,6 +25,8 @@ module Magicka
     #   Agragator to be initialized
     # @param type [String,Symbol] type of aggregator,
     #   this will define the method name
+    # @param config_block [Proc] block to be evaluated and configure the aggregator
+    #   when it is first used
     #
     # @return [Array<NilClass>]
 

@@ -2,15 +2,16 @@
 
 module Magicka
   module Helper
+    # @api private
+    #
     # Builds methods for {Magicka::Helper}
     class MethodBuilder < Sinclair
-      # (see Magicka::Helper.with)
-      def build_aggregator(aggregator_class, type = aggregator_class.type)
-        add_method("magicka_#{type}") do |model, &block|
-          block.call(aggregator_class.new(self, model))
-        end
+      def build_aggregator
+        opts = options
 
-        build
+        add_method("magicka_#{opts.type}") do |model, &block|
+          block.call(opts.configured_aggregator_class.new(self, model))
+        end
       end
     end
   end
