@@ -43,7 +43,7 @@ describe Magicka::Helper::AggregatorOptions do
 
         it 'configure the aggregator' do
           options.configured_aggregator.new(renderer, model)
-            .input(:name)
+                 .input(:name)
 
           expect(element_class).to have_received(:render)
         end
@@ -79,7 +79,7 @@ describe Magicka::Helper::AggregatorOptions do
 
         it 'configure the aggregator' do
           options.configured_aggregator.new(renderer, model)
-            .input(:name)
+                 .input(:name)
 
           expect(element_class).to have_received(:render)
         end
