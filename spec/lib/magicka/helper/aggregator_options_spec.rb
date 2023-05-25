@@ -15,13 +15,37 @@ describe Magicka::Helper::AggregatorOptions do
 
   let(:aggregator_class) { Class.new(Magicka::Aggregator) }
   let(:type)             { :my_aggregator }
-  let(:config_block)     { proc { } }
+  let(:config_block) do
+    proc { with_element(Magicka::Input) }
+  end
 
   describe '#configured_aggregator_class' do
+    let(:renderer)       { instance_double(ActionView::OutputBuffer) }
+    let(:model)          { Object.new }
+    let(:element_class)  { Magicka::Input }
+
+    before do
+      allow(element_class).to receive(:render).with(
+        renderer: renderer,
+        field: :name,
+        model: model,
+        template: nil
+      )
+    end
+
     context 'when aggregator_class is a class' do
-      it 'returns the given aggregator class' do
-        expect(options.configured_aggregator_class)
-          .to be(aggregator_class)
+      context 'when config block is given' do
+        it 'returns the given aggregator class' do
+          expect(options.configured_aggregator_class)
+            .to be(aggregator_class)
+        end
+
+        it 'configure the aggregator' do
+          options.configured_aggregator_class.new(renderer, model)
+            .input(:name)
+
+          expect(element_class).to have_received(:render)
+        end
       end
 
       context 'when config block is not given' do
