@@ -2,6 +2,11 @@
 
 module Magicka
   module Helper
+    # @api private
+    #
+    # Options when generating {Helper} aggregator methods
+    #
+    # This is used when calling {Helper.with Helper.with}
     class AggregatorOptions < Sinclair::Options
       with_options :aggregator_class, :type, :config_block
 
