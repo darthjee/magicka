@@ -10,8 +10,8 @@ module Magicka
     class AggregatorOptions < Sinclair::Options
       with_options :aggregator_class, :type, :config_block
 
-      def built_aggregator_class
-        @built_aggregator_class ||= build_aggregator_class
+      def configured_aggregator_class
+        @configured_aggregator_class ||= configure_aggregator_class
       end
 
       def type
@@ -20,7 +20,7 @@ module Magicka
 
       private
 
-      def build_aggregator_class
+      def configure_aggregator_class
         return aggregator_class unless config_block
 
         aggregator_class.instance_eval(&config_block)
