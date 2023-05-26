@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module Magicka
-  class WebForm < Aggregator
+  class DataTable < Aggregator
   end
 end

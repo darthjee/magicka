@@ -2,6 +2,6 @@
 
 require 'magicka'
 
-Magicka::Helper.with('Magicka::WebForm', :web_form) do
-  with_element(Magicka::WebInput)
+Magicka::Helper.with('Magicka::DataTable', :data_table) do
+  with_element(Magicka::DataEntry)
 end
