@@ -1,4 +1,6 @@
-<%=
-  magicka_data_table(Object.new) do |table|
-  end
-%>
+<dt>
+  <%= magicka_data_table(document) do |table| %>
+    <%= table.data_entry(:name) %>
+    <%= table.data_entry(:reference) %>
+  <% end %>
+</dt>

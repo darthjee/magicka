@@ -2,5 +2,6 @@
 
 module Magicka
   class DataEntry < Magicka::Text
+    with_locals :model
   end
 end

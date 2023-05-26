@@ -9,8 +9,24 @@ describe 'yard for Magicka::Helper' do
 
       before { get "/documents/#{document.id}" }
 
+      let(:expected_body) do
+        [
+          "<dh>Name</dh>",
+          "<dd>#{document.name}</dd><br />",
+          "",
+          "<dh>Reference</dh>",
+          "<dd>#{document.reference}</dd>"
+        ].join(" *\n *")
+      end
+
       it do
         expect(response.status).to eq(200)
+      end
+
+      it do
+        expect(response.body).to match(
+          Regexp.new(expected_body)
+        )
       end
     end
   end
