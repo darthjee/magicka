@@ -11,10 +11,10 @@ describe 'yard for Magicka::Helper' do
 
       let(:expected_body) do
         [
-          "<dh>Name</dh>",
+          '<dh>Name</dh>',
           "<dd>#{document.name}</dd><br />",
-          "",
-          "<dh>Reference</dh>",
+          '',
+          '<dh>Reference</dh>',
           "<dd>#{document.reference}</dd>"
         ].join(" *\n *")
       end
