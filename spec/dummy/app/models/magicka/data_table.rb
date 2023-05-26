@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module Magicka
-  class WebInput < Magicka::Input
+  class DataTable < Aggregator
   end
 end
