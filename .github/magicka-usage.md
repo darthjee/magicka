@@ -22,6 +22,79 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+## Required: HTML Templates
+
+> **Important:** Magicka does not ship any HTML templates. You must create all template
+> files yourself — including those for the built-in elements (`input`, `select`,
+> `button`, and the display-context `text`). No element will render until its
+> corresponding template exists in your application.
+
+### Template Paths for Built-In Elements
+
+Each element resolves its template path from a folder configured on the element class.
+All paths below are relative to `app/views/`.
+
+| Element method | Context | Template file | Available locals |
+|----------------|---------|---------------|------------------|
+| `form.input` | form | `templates/forms/_input.html.erb` | `field`, `label`, `ng_model`, `ng_errors`, `placeholder` |
+| `form.input` | display | `templates/display/_text.html.erb` | `field`, `label`, `ng_model`, `ng_errors` |
+| `form.select` | form | `templates/forms/_select.html.erb` | `field`, `label`, `ng_model`, `ng_errors`, `options` |
+| `form.select` | display | `templates/display/_text.html.erb` | `field`, `label`, `ng_model`, `ng_errors` |
+| `form.button` | form | `templates/forms/_button.html.erb` | `text`, `ng_click`, `ng_disabled`, `classes` |
+
+`ng_model` and `ng_errors` are AngularJS expression strings (e.g.,
+`"controller.person.first_name"` and `"controller.person.errors.first_name"`).
+
+### Minimal Starter Templates
+
+These examples show the minimal markup needed to get each element working. Adapt them
+to match your application's HTML structure and CSS framework.
+
+**`app/views/templates/forms/_input.html.erb`**
+```erb
+<div>
+  <label for="<%= field %>"><%= label %></label>
+  <input type="text"
+         id="<%= field %>"
+         ng-model="<%= ng_model %>"
+         placeholder="<%= placeholder %>" />
+  <span ng-show="<%= ng_errors %>">Invalid value</span>
+</div>
+```
+
+**`app/views/templates/forms/_select.html.erb`**
+```erb
+<div>
+  <label for="<%= field %>"><%= label %></label>
+  <select id="<%= field %>" ng-model="<%= ng_model %>">
+    <% options.each do |option| %>
+      <option value="<%= option %>"><%= option %></option>
+    <% end %>
+  </select>
+  <span ng-show="<%= ng_errors %>">Invalid selection</span>
+</div>
+```
+
+**`app/views/templates/forms/_button.html.erb`**
+```erb
+<button class="<%= classes %>"
+        ng-click="<%= ng_click %>"
+        ng-disabled="<%= ng_disabled %>">
+  <%= text %>
+</button>
+```
+
+**`app/views/templates/display/_text.html.erb`** (used by both `input` and `select` in
+display context)
+```erb
+<div>
+  <label><%= label %></label>
+  <span>{{ <%= ng_model %> }}</span>
+</div>
+```
+
+---
+
 ## Core Concepts
 
 ### Aggregators
