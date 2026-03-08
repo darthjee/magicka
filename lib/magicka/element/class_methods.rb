@@ -63,9 +63,9 @@ module Magicka
       # Adds attribute and locals
       #
       # @return [Array]
-      def with_attribute_locals(*args)
-        with_locals(*args)
-        with_attributes(*args)
+      def with_attribute_locals(*)
+        with_locals(*)
+        with_attributes(*)
       end
     end
   end
