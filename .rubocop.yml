@@ -52,3 +52,6 @@ Style/HashTransformValues:
 RSpec/DescribeClass:
   Exclude:
     - 'spec/integration/**/*_spec.rb'
+
+Gemspec/RequireMFA:
+  Enabled: false
