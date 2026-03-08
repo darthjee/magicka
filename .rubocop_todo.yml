@@ -27,13 +27,6 @@ RSpec/VerifiedDoubleReference:
     - 'spec/lib/magicka/select_spec.rb'
     - 'spec/lib/magicka/text_spec.rb'
 
-# Offense count: 3
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: SafeForConstants.
-Style/RedundantFetchBlock:
-  Exclude:
-    - 'spec/dummy/config/puma.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/RedundantRegexpArgument:
