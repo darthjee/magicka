@@ -11,6 +11,7 @@ module Magicka
     extend Aggregator::ClassMethods
 
     attr_reader :model
+
     # @method model
     # @api public
     #
@@ -106,6 +107,7 @@ module Magicka
     protected
 
     attr_reader :renderer
+
     # @method renderer
     # @private
     # @api private
