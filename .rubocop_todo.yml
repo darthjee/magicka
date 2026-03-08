@@ -28,13 +28,6 @@ RSpec/VerifiedDoubleReference:
     - 'spec/lib/magicka/text_spec.rb'
 
 # Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: AllowedMethods, AllowedPatterns.
-Style/ReturnNilInPredicateMethodDefinition:
-  Exclude:
-    - 'lib/magicka/aggregator.rb'
-
-# Offense count: 1
 # Configuration parameters: Max.
 Style/SafeNavigationChainLength:
   Exclude:

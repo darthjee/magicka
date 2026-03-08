@@ -96,7 +96,7 @@ module Magicka
     #
     # @return [TrueClass,FalseClass]
     def equal?(other)
-      return unless other.class == self.class
+      return false unless other.class == self.class
 
       other.renderer == renderer &&
         other.model == model
