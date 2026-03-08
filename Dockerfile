@@ -1,4 +1,4 @@
-FROM darthjee/scripts:0.3.1 as scripts
+FROM darthjee/scripts:0.6.0 as scripts
 
 FROM darthjee/rails_gems:1.2.0 as base
 
