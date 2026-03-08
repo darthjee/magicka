@@ -26,9 +26,3 @@ RSpec/VerifiedDoubleReference:
     - 'spec/lib/magicka/input_spec.rb'
     - 'spec/lib/magicka/select_spec.rb'
     - 'spec/lib/magicka/text_spec.rb'
-
-# Offense count: 1
-# Configuration parameters: Max.
-Style/SafeNavigationChainLength:
-  Exclude:
-    - 'lib/magicka/aggregator/class_methods.rb'
