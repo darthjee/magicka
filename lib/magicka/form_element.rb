@@ -23,7 +23,7 @@ module Magicka
     #
     # @return [String]
     def label
-      @label ||= field.to_s.capitalize.gsub(/_/, ' ')
+      @label ||= field.to_s.capitalize.gsub('_', ' ')
     end
 
     # @api private
