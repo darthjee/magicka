@@ -2,7 +2,8 @@ require: rubocop-rspec
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.3
+  NewCops: enable
 
 Layout/LineLength:
   Max: 90
@@ -51,3 +52,6 @@ Style/HashTransformValues:
 RSpec/DescribeClass:
   Exclude:
     - 'spec/integration/**/*_spec.rb'
+
+Gemspec/RequireMFA:
+  Enabled: false

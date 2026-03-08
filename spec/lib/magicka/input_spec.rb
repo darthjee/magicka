@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Magicka::Input do
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/forms/input' }
 
   let(:model)       { :my_model }

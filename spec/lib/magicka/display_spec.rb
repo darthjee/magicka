@@ -6,7 +6,7 @@ describe Magicka::Display do
   subject(:form) { described_class.new(renderer, model) }
 
   let(:model)    { :my_model }
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/display/text' }
   let(:locals)   { {} }
 

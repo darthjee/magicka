@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Magicka::FormElement do
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/forms/custom_template' }
 
   let(:expected_template) { template }

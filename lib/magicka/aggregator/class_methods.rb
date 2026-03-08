@@ -36,7 +36,9 @@ module Magicka
       #
       # @return [Symbol]
       def default_type
-        name&.demodulize&.underscore&.to_sym
+        return unless name
+
+        name.demodulize.underscore.to_sym
       end
     end
   end

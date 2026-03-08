@@ -7,7 +7,7 @@ describe Magicka::Aggregator do
 
   let(:aggregator_class) { Class.new(described_class) }
   let(:model)            { :my_model }
-  let(:renderer)         { instance_double('renderer') }
+  let(:renderer)         { instance_double(ActionView::Base) }
   let(:template)         { 'templates/forms/input' }
   let(:locals)           { {} }
 

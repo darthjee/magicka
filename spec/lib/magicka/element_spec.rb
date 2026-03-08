@@ -9,7 +9,7 @@ describe Magicka::Element do
     Class.new(described_class)
   end
 
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/forms/element' }
   let(:folder)   { 'templates/forms' }
   let(:locals)   { {} }

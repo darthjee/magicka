@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Magicka::Text do
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/display/text' }
 
   let(:model) { :my_model }

@@ -11,6 +11,7 @@ module Magicka
     extend Aggregator::ClassMethods
 
     attr_reader :model
+
     # @method model
     # @api public
     #
@@ -95,7 +96,7 @@ module Magicka
     #
     # @return [TrueClass,FalseClass]
     def equal?(other)
-      return unless other.class == self.class
+      return false unless other.class == self.class
 
       other.renderer == renderer &&
         other.model == model
@@ -106,6 +107,7 @@ module Magicka
     protected
 
     attr_reader :renderer
+
     # @method renderer
     # @private
     # @api private

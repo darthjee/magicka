@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Magicka::Button do
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/forms/button' }
 
   let(:ng_click)    { 'controler.click()' }

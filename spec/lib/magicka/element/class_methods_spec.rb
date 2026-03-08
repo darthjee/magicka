@@ -9,7 +9,7 @@ describe Magicka::Element::ClassMethods do
     Class.new(Magicka::Element)
   end
 
-  let(:renderer) { instance_double('renderer') }
+  let(:renderer) { instance_double(ActionView::Base) }
   let(:template) { 'templates/forms/element' }
   let(:locals)   { {} }
 
