@@ -211,3 +211,19 @@ Magicka::Form.with_element(Magicka::MyTextInput)
   <input type="text" id="<%= id %>" name="<%= field %>" />
 </div>
 ```
+
+## Sinclair Usage
+
+Magicka uses the **sinclair** gem extensively. Refer to [.github/sinclair-usage.md](.github/sinclair-usage.md) for the full usage guide.
+
+Key features used in this project:
+
+- **`Sinclair`** – Dynamically add instance/class methods to existing classes via builders
+- **`Sinclair::Model`** – Quick plain-Ruby models with keyword initializers and equality support
+- **`Sinclair::Options`** – Validated option/parameter objects with defaults
+- **`Sinclair::Configurable`** – Read-only application configuration with defaults
+- **`Sinclair::Comparable`** – Attribute-based `==` for models
+- **`Sinclair::Matchers`** – RSpec matchers to test builder behaviour (`add_method`, `add_class_method`, `change_method`)
+
+When building new features, prefer sinclair patterns for dynamic method generation, option handling, and plain-Ruby models over raw `attr_accessor` / `define_method` approaches.
+
