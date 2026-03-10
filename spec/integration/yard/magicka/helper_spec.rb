@@ -20,7 +20,7 @@ describe 'yard for Magicka::Helper' do
       before { get "/documents/#{document.id}" }
 
       it do
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(:ok)
       end
 
       it do
