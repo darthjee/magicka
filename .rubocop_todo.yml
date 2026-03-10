@@ -26,8 +26,3 @@ RSpecRails/HaveHttpStatus:
   Exclude:
     - 'spec/integration/yard/magicka/helper_spec.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Rails/ApplicationRecord:
-  Exclude:
-    - 'spec/dummy/app/models/document.rb'
