@@ -13,7 +13,7 @@ such as AngulaJS
 
 **Current Release**: [1.2.0](https://github.com/darthjee/magicka/tree/1.2.0)
 
-**Next release**: [1.3.0](https://github.com/darthjee/magicka/compare/1.2.0...master)
+**Next release**: [1.3.0](https://github.com/darthjee/magicka/compare/1.2.0...main)
 
 Yard Documentation
 -------------------
